@@ -16,8 +16,12 @@ echo "Spec URL: ${OPENAPI_SPEC_URL}"
 
 mkdir -p "${OUTPUT_DIR}"
 
-# Check if openapi-generator-cli is available
-if command -v openapi-generator-cli &> /dev/null || npx @openapitools/openapi-generator-cli --version &> /dev/null; then
+# Check if openapi-generator-cli is available.
+#
+# --yes matters on every npx call here, probe included: without it npx asks permission before fetching
+# the package, and a prompt on a CI runner exits non-zero - which this probe then reads as the tool
+# being absent, and the script reports "Neither openapi-generator-cli nor nswag found".
+if command -v openapi-generator-cli &> /dev/null || npx --yes @openapitools/openapi-generator-cli --version &> /dev/null; then
     echo "Using openapi-generator-cli..."
 
     # First, fetch the spec
@@ -28,7 +32,7 @@ if command -v openapi-generator-cli &> /dev/null || npx @openapitools/openapi-ge
     }
 
     # Generate TypeScript client
-    npx @openapitools/openapi-generator-cli generate \
+    npx --yes @openapitools/openapi-generator-cli generate \
         -i "${OUTPUT_DIR}/openapi-spec.json" \
         -g typescript-axios \
         -o "${OUTPUT_DIR}/client" \
@@ -36,7 +40,7 @@ if command -v openapi-generator-cli &> /dev/null || npx @openapitools/openapi-ge
 
     echo "✓ TypeScript client generated in ${OUTPUT_DIR}/client"
 
-elif command -v nswag &> /dev/null || npx nswag --version &> /dev/null; then
+elif command -v nswag &> /dev/null || npx --yes nswag --version &> /dev/null; then
     echo "Using NSwag..."
 
     curl -sf -o "${OUTPUT_DIR}/openapi-spec.json" "${OPENAPI_SPEC_URL}" || {
@@ -45,7 +49,7 @@ elif command -v nswag &> /dev/null || npx nswag --version &> /dev/null; then
         exit 1
     }
 
-    npx nswag swagger2tsclient \
+    npx --yes nswag swagger2tsclient \
         /input:"${OUTPUT_DIR}/openapi-spec.json" \
         /output:"${OUTPUT_DIR}/client.ts" \
         /namespace:StorefrontHeadlessApi \
