@@ -1,0 +1,301 @@
+# OrderEazi/commerce-sdk -> .github/workflows/release.yml
+#
+# Generates the four clients from the live OpenAPI document, tests them, and publishes each to its
+# registry. Nothing private is involved: /openapi/*.json is served without authentication, which is
+# the whole reason this can run here rather than inside the Storefront-8 pipeline.
+#
+# Every registry authenticates by OIDC, with one temporary exception: npm can only attach a trusted
+# publisher to a package that already exists, so the first release of @ordereazi/commerce-sdk needs
+# NPM_TOKEN. Delete that secret once the package is on npm and the publish step goes keyless by
+# itself - see the note on it below.
+#
+# The other secret, SDK_PHP_PUSH_TOKEN, is not a registry credential: it pushes the generated PHP
+# client into its own repository, which GITHUB_TOKEN cannot reach because it is scoped to this repo.
+#
+# npm, PyPI and NuGet policies all bind to this FILENAME. Renaming this file breaks all three, and
+# the failure reads as an ordinary auth error.
+name: Release SDKs
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish, without the leading v (e.g. 1.0.0)'
+        required: true
+
+env:
+  # Override with a repository variable to cut a release from a different environment. Whatever this
+  # points at decides what the SDKs describe, so it is the real input to a release.
+  OPENAPI_BASE_URL: ${{ vars.OPENAPI_BASE_URL || 'https://commerce-api-alpha.ordereazi.com' }}
+
+jobs:
+  # Resolved once so every publish job agrees, whether it came from a tag or a manual run.
+  version:
+    runs-on: ubuntu-latest
+    outputs:
+      value: ${{ steps.resolve.outputs.value }}
+    steps:
+      - id: resolve
+        run: |
+          if [ -n "${{ inputs.version }}" ]; then
+            version="${{ inputs.version }}"
+          else
+            version="${GITHUB_REF_NAME#v}"
+          fi
+
+          # npm rejects a version with leading zeros outright, and PyPI and NuGet silently renormalise
+          # it - so the tag and the published version would disagree. Better to stop here.
+          if ! echo "$version" | grep -Eq '^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?$'; then
+            echo "Not valid semver: $version"
+            exit 1
+          fi
+
+          echo "value=$version" >> "$GITHUB_OUTPUT"
+          echo "Releasing $version"
+
+  # One generator run shared by every publish job. Running it per job would be four downloads of the
+  # spec and four chances for them to differ if a deploy landed mid-workflow.
+  generate:
+    needs: version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'   # openapi-generator-cli is a jar; npx only fetches and runs it
+
+      - name: Confirm the spec is reachable and non-empty
+        # A generator given a 404 body produces an empty but perfectly valid client, which then
+        # publishes and looks fine until someone tries to call something.
+        run: |
+          for doc in store admin; do
+            curl -fsS "$OPENAPI_BASE_URL/openapi/$doc.json" -o "$doc.json"
+            paths=$(node -e "console.log(Object.keys(require('./$doc.json').paths || {}).length)")
+            echo "$doc: $paths paths"
+            if [ "$paths" -lt 1 ]; then echo "$doc has no paths - refusing to generate"; exit 1; fi
+          done
+
+      - name: Generate
+        env:
+          API_URL: ${{ env.OPENAPI_BASE_URL }}
+          SDK_VERSION: ${{ needs.version.outputs.value }}
+        run: |
+          for lang in python php dotnet; do
+            echo "::group::$lang"
+            (cd "$lang" && bash generate.sh)
+            echo "::endgroup::"
+          done
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: generated
+          path: |
+            python/generated
+            php/generated
+            dotnet/generated
+          retention-days: 1
+
+  publish-npm:
+    needs: [version, generate]
+    runs-on: ubuntu-latest   # trusted publishing does not support self-hosted runners
+    permissions:
+      contents: read
+      id-token: write
+    defaults:
+      run:
+        working-directory: typescript
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Confirm npm is new enough for trusted publishing
+        # An older npm fails with a 401 that looks nothing like a version problem.
+        run: |
+          required=11.5.1
+          actual=$(npm --version)
+          lowest=$({ echo "$required"; echo "$actual"; } | sort -V | head -1)
+          # Only the OIDC path needs a modern npm; a token publish works on anything. Node 24 ships
+          # npm 11.x regardless, so this is a guard against a runner image changing under us.
+          if [ "$lowest" != "$required" ] && [ -z "${{ secrets.NPM_TOKEN }}" ]; then
+            echo "npm $required or newer is required for trusted publishing, got $actual"
+            exit 1
+          fi
+          echo "npm $actual"
+
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+
+      - name: Set the version from the tag
+        run: npm version "${{ needs.version.outputs.value }}" --no-git-tag-version --allow-same-version
+
+      # npm can only configure a trusted publisher on a package that already EXISTS, and
+      # @ordereazi/commerce-sdk does not yet - so the first release cannot be keyless.
+      #
+      # NPM_TOKEN is therefore used when present and ignored when not. Publish once with the token,
+      # configure the trusted publisher on npm, then delete the secret: this step goes keyless on its
+      # own with no edit. PyPI avoids the problem with pending publishers and NuGet with owner-scoped
+      # policies; npm has neither.
+      #
+      # --provenance works either way, and needs the id-token permission this job already requests.
+      - name: Publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -n "$NPM_TOKEN" ]; then
+            echo "Publishing with NPM_TOKEN - remove the secret once the trusted publisher is configured"
+            npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+          else
+            echo "Publishing with trusted publishing (OIDC)"
+          fi
+
+          npm publish --access public --provenance
+
+  publish-pypi:
+    needs: [version, generate]
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: generated
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Test
+        working-directory: python
+        run: |
+          python -m pip install --quiet ./generated
+          if [ -d tests ]; then
+            python -m pip install --quiet pytest
+            python -m pytest -q tests
+          else
+            echo "No tests in this release - skipping"
+          fi
+
+      - name: Build wheel and sdist
+        working-directory: python/generated
+        run: |
+          python -m pip install --quiet build
+          python -m build
+
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          # An action step ignores defaults.run.working-directory, so this is repo-relative.
+          packages-dir: python/generated/dist
+          skip-existing: true
+
+  publish-nuget:
+    needs: [version, generate]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: generated
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Build and test
+        working-directory: dotnet/generated
+        run: |
+          dotnet restore
+          dotnet build --configuration Release --no-restore
+          if ls **/*.Test*.csproj src/**/*.Test*.csproj >/dev/null 2>&1; then
+            dotnet test --configuration Release --no-build --verbosity quiet
+          else
+            echo "No test project in this release - skipping"
+          fi
+
+      - name: Pack
+        working-directory: dotnet/generated
+        run: |
+          dotnet pack --configuration Release --no-build \
+            -p:PackageVersion=${{ needs.version.outputs.value }} \
+            --output ./artifacts
+
+      # Last thing before the push: this key expires in an hour and each OIDC token buys exactly one.
+      - name: NuGet login (OIDC to short-lived API key)
+        id: login
+        uses: NuGet/login@v1
+        with:
+          user: ${{ secrets.NUGET_USER }}
+
+      - name: Publish
+        working-directory: dotnet/generated
+        run: |
+          dotnet nuget push ./artifacts/*.nupkg \
+            --api-key ${{ steps.login.outputs.NUGET_API_KEY }} \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
+
+  # Packagist publishes a composer package only from a repository root, so the PHP client cannot live
+  # in a subdirectory here like the other three. It gets pushed to its own repo and tagged; Packagist
+  # picks the tag up from its webhook. Nothing authenticates to Packagist itself.
+  publish-php:
+    needs: [version, generate]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: generated
+
+      - name: Push the generated client and tag it
+        env:
+          VERSION: ${{ needs.version.outputs.value }}
+          TOKEN: ${{ secrets.SDK_PHP_PUSH_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "SDK_PHP_PUSH_TOKEN not set - skipping the Packagist push"
+            exit 0
+          fi
+
+          mirror=$(mktemp -d)
+          git clone --quiet "https://x-access-token:$TOKEN@github.com/OrderEazi/commerce-sdk-php" "$mirror"
+
+          if git -C "$mirror" rev-parse "v$VERSION" >/dev/null 2>&1; then
+            echo "v$VERSION already tagged - nothing to do"
+            exit 0
+          fi
+
+          # Replaced wholesale: the generator output is the source of truth, so a file it stopped
+          # emitting has to disappear. .git and .github survive - the latter holds that repo's own
+          # validation workflow.
+          find "$mirror" -mindepth 1 -maxdepth 1 -not -name .git -not -name .github -exec rm -rf {} +
+          cp -r php/generated/. "$mirror"/
+          rm -rf "$mirror/vendor"
+
+          git -C "$mirror" add -A
+          git -C "$mirror" -c user.email=ci@ordereazi.com -c user.name='OrderEazi CI' \
+            commit -q -m "Release v$VERSION" || true
+          git -C "$mirror" tag "v$VERSION"
+          git -C "$mirror" push --quiet origin HEAD --tags
+
+          echo "Pushed v$VERSION to commerce-sdk-php"

@@ -1,0 +1,4 @@
+generated/
+openapi-spec.json
+vendor/
+composer.lock

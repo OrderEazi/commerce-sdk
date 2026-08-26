@@ -1,0 +1,3199 @@
+{
+  "generatedFrom": "store.json",
+  "operationCount": 103,
+  "operations": [
+    {
+      "operationId": "AccountAddressesCreateAddressApi",
+      "method": "POST",
+      "path": "/api/v1/store/account/addresses",
+      "tag": "Account - Addresses",
+      "summary": "Saves a new address to the current customer's address book.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountAddressesApi",
+          "methodName": "accountAddressesCreateAddressApi",
+          "usage": "const api = new AccountAddressesApi(config); const result = await api.accountAddressesCreateAddressApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountAddressesApi",
+          "methodName": "account_addresses_create_address_api",
+          "usage": "api = AccountAddressesApi(api_client); result = api.account_addresses_create_address_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountAddressesApi",
+          "methodName": "accountAddressesCreateAddressApi",
+          "usage": "$api = new AccountAddressesApi(null, $config); $result = $api->accountAddressesCreateAddressApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountAddressesApi",
+          "interfaceName": "IAccountAddressesApi",
+          "methodName": "AccountAddressesCreateAddressApiAsync",
+          "responseType": "IAccountAddressesCreateAddressApiApiResponse",
+          "usage": "var response = await api.AccountAddressesCreateAddressApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "AccountAddressesDeleteAddressApi",
+      "method": "DELETE",
+      "path": "/api/v1/store/account/addresses/{id}",
+      "tag": "Account - Addresses",
+      "summary": "Removes a saved address (soft delete, matching how the address book already treats removal).",
+      "sdk": {
+        "typescript": {
+          "className": "AccountAddressesApi",
+          "methodName": "accountAddressesDeleteAddressApi",
+          "usage": "const api = new AccountAddressesApi(config); const result = await api.accountAddressesDeleteAddressApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountAddressesApi",
+          "methodName": "account_addresses_delete_address_api",
+          "usage": "api = AccountAddressesApi(api_client); result = api.account_addresses_delete_address_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountAddressesApi",
+          "methodName": "accountAddressesDeleteAddressApi",
+          "usage": "$api = new AccountAddressesApi(null, $config); $result = $api->accountAddressesDeleteAddressApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountAddressesApi",
+          "interfaceName": "IAccountAddressesApi",
+          "methodName": "AccountAddressesDeleteAddressApiAsync",
+          "responseType": "IAccountAddressesDeleteAddressApiApiResponse",
+          "usage": "var response = await api.AccountAddressesDeleteAddressApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "AccountAddressesGetAddressesApi",
+      "method": "GET",
+      "path": "/api/v1/store/account/addresses",
+      "tag": "Account - Addresses",
+      "summary": "Lists the current customer's saved addresses.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountAddressesApi",
+          "methodName": "accountAddressesGetAddressesApi",
+          "usage": "const api = new AccountAddressesApi(config); const result = await api.accountAddressesGetAddressesApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountAddressesApi",
+          "methodName": "account_addresses_get_addresses_api",
+          "usage": "api = AccountAddressesApi(api_client); result = api.account_addresses_get_addresses_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountAddressesApi",
+          "methodName": "accountAddressesGetAddressesApi",
+          "usage": "$api = new AccountAddressesApi(null, $config); $result = $api->accountAddressesGetAddressesApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountAddressesApi",
+          "interfaceName": "IAccountAddressesApi",
+          "methodName": "AccountAddressesGetAddressesApiAsync",
+          "responseType": "IAccountAddressesGetAddressesApiApiResponse",
+          "usage": "var response = await api.AccountAddressesGetAddressesApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "AccountAddressesUpdateAddressApi",
+      "method": "PATCH",
+      "path": "/api/v1/store/account/addresses/{id}",
+      "tag": "Account - Addresses",
+      "summary": "Updates a saved address. Only fields present in the request are changed.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountAddressesApi",
+          "methodName": "accountAddressesUpdateAddressApi",
+          "usage": "const api = new AccountAddressesApi(config); const result = await api.accountAddressesUpdateAddressApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountAddressesApi",
+          "methodName": "account_addresses_update_address_api",
+          "usage": "api = AccountAddressesApi(api_client); result = api.account_addresses_update_address_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountAddressesApi",
+          "methodName": "accountAddressesUpdateAddressApi",
+          "usage": "$api = new AccountAddressesApi(null, $config); $result = $api->accountAddressesUpdateAddressApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountAddressesApi",
+          "interfaceName": "IAccountAddressesApi",
+          "methodName": "AccountAddressesUpdateAddressApiAsync",
+          "responseType": "IAccountAddressesUpdateAddressApiApiResponse",
+          "usage": "var response = await api.AccountAddressesUpdateAddressApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "AuthForgotPasswordApi",
+      "method": "POST",
+      "path": "/api/v1/store/auth/forgot-password",
+      "tag": "Auth",
+      "summary": "Starts a password reset - always returns success regardless of whether the email is registered,\nso this endpoint can't be used to enumerate accounts.",
+      "sdk": {
+        "typescript": {
+          "className": "AuthApi",
+          "methodName": "authForgotPasswordApi",
+          "usage": "const api = new AuthApi(config); const result = await api.authForgotPasswordApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AuthApi",
+          "methodName": "auth_forgot_password_api",
+          "usage": "api = AuthApi(api_client); result = api.auth_forgot_password_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AuthApi",
+          "methodName": "authForgotPasswordApi",
+          "usage": "$api = new AuthApi(null, $config); $result = $api->authForgotPasswordApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AuthApi",
+          "interfaceName": "IAuthApi",
+          "methodName": "AuthForgotPasswordApiAsync",
+          "responseType": "IAuthForgotPasswordApiApiResponse",
+          "usage": "var response = await api.AuthForgotPasswordApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "AuthLoginApi",
+      "method": "POST",
+      "path": "/api/v1/store/auth/login",
+      "tag": "Auth",
+      "summary": "Authenticates a customer and returns a JWT bearer token carrying their store_id/store_ref.",
+      "sdk": {
+        "typescript": {
+          "className": "AuthApi",
+          "methodName": "authLoginApi",
+          "usage": "const api = new AuthApi(config); const result = await api.authLoginApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AuthApi",
+          "methodName": "auth_login_api",
+          "usage": "api = AuthApi(api_client); result = api.auth_login_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AuthApi",
+          "methodName": "authLoginApi",
+          "usage": "$api = new AuthApi(null, $config); $result = $api->authLoginApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AuthApi",
+          "interfaceName": "IAuthApi",
+          "methodName": "AuthLoginApiAsync",
+          "responseType": "IAuthLoginApiApiResponse",
+          "usage": "var response = await api.AuthLoginApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "AuthLogoutApi",
+      "method": "POST",
+      "path": "/api/v1/store/auth/logout",
+      "tag": "Auth",
+      "summary": "Logs out the current customer. Access-token invalidation is still client-side (drop the token) -\nthere is no server-side access-token blacklist. Pass RefreshToken to also revoke its rotation\nfamily, so it (and any token already issued from it) can't be used to get a new access token later.",
+      "sdk": {
+        "typescript": {
+          "className": "AuthApi",
+          "methodName": "authLogoutApi",
+          "usage": "const api = new AuthApi(config); const result = await api.authLogoutApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AuthApi",
+          "methodName": "auth_logout_api",
+          "usage": "api = AuthApi(api_client); result = api.auth_logout_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AuthApi",
+          "methodName": "authLogoutApi",
+          "usage": "$api = new AuthApi(null, $config); $result = $api->authLogoutApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AuthApi",
+          "interfaceName": "IAuthApi",
+          "methodName": "AuthLogoutApiAsync",
+          "responseType": "IAuthLogoutApiApiResponse",
+          "usage": "var response = await api.AuthLogoutApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "AuthRefreshTokenApi",
+      "method": "POST",
+      "path": "/api/v1/store/auth/refresh-token",
+      "tag": "Auth",
+      "summary": "Exchanges a refresh token for a new access token, without requiring the (possibly already expired)\naccess token itself - the whole point of a refresh token is to work after the access token has\nexpired. Rotation + reuse detection: every successful refresh revokes the presented token and\nissues a new one in the same family; presenting a token that's already been used (already revoked)\nis treated as theft and revokes the entire family, forcing a full re-login.",
+      "sdk": {
+        "typescript": {
+          "className": "AuthApi",
+          "methodName": "authRefreshTokenApi",
+          "usage": "const api = new AuthApi(config); const result = await api.authRefreshTokenApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AuthApi",
+          "methodName": "auth_refresh_token_api",
+          "usage": "api = AuthApi(api_client); result = api.auth_refresh_token_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AuthApi",
+          "methodName": "authRefreshTokenApi",
+          "usage": "$api = new AuthApi(null, $config); $result = $api->authRefreshTokenApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AuthApi",
+          "interfaceName": "IAuthApi",
+          "methodName": "AuthRefreshTokenApiAsync",
+          "responseType": "IAuthRefreshTokenApiApiResponse",
+          "usage": "var response = await api.AuthRefreshTokenApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "AuthRegisterApi",
+      "method": "POST",
+      "path": "/api/v1/store/auth/register",
+      "tag": "Auth",
+      "summary": "Registers a new customer account and, unless merchant approval is required, logs them in.",
+      "sdk": {
+        "typescript": {
+          "className": "AuthApi",
+          "methodName": "authRegisterApi",
+          "usage": "const api = new AuthApi(config); const result = await api.authRegisterApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AuthApi",
+          "methodName": "auth_register_api",
+          "usage": "api = AuthApi(api_client); result = api.auth_register_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AuthApi",
+          "methodName": "authRegisterApi",
+          "usage": "$api = new AuthApi(null, $config); $result = $api->authRegisterApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AuthApi",
+          "interfaceName": "IAuthApi",
+          "methodName": "AuthRegisterApiAsync",
+          "responseType": "IAuthRegisterApiApiResponse",
+          "usage": "var response = await api.AuthRegisterApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "AuthResetPasswordApi",
+      "method": "POST",
+      "path": "/api/v1/store/auth/reset-password",
+      "tag": "Auth",
+      "summary": "Completes a password reset using the hash issued by forgot-password.",
+      "sdk": {
+        "typescript": {
+          "className": "AuthApi",
+          "methodName": "authResetPasswordApi",
+          "usage": "const api = new AuthApi(config); const result = await api.authResetPasswordApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AuthApi",
+          "methodName": "auth_reset_password_api",
+          "usage": "api = AuthApi(api_client); result = api.auth_reset_password_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AuthApi",
+          "methodName": "authResetPasswordApi",
+          "usage": "$api = new AuthApi(null, $config); $result = $api->authResetPasswordApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AuthApi",
+          "interfaceName": "IAuthApi",
+          "methodName": "AuthResetPasswordApiAsync",
+          "responseType": "IAuthResetPasswordApiApiResponse",
+          "usage": "var response = await api.AuthResetPasswordApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "BranchesGetBranchesApi",
+      "method": "GET",
+      "path": "/api/v1/store/branches",
+      "tag": "Store Locations",
+      "summary": "Lists the store's physical branches/locations, each with its current open/closed status\n    and full weekly operating hours - for a store-locator page or click-and-collect point picker.\n    Pass a branch's StoreBranchId back as the X-Branch-Id header on subsequent requests to scope\n    stock and (at checkout) stock reservation to that branch.",
+      "sdk": {
+        "typescript": {
+          "className": "StoreLocationsApi",
+          "methodName": "branchesGetBranchesApi",
+          "usage": "const api = new StoreLocationsApi(config); const result = await api.branchesGetBranchesApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "StoreLocationsApi",
+          "methodName": "branches_get_branches_api",
+          "usage": "api = StoreLocationsApi(api_client); result = api.branches_get_branches_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "StoreLocationsApi",
+          "methodName": "branchesGetBranchesApi",
+          "usage": "$api = new StoreLocationsApi(null, $config); $result = $api->branchesGetBranchesApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "StoreLocationsApi",
+          "interfaceName": "IStoreLocationsApi",
+          "methodName": "BranchesGetBranchesApiAsync",
+          "responseType": "IBranchesGetBranchesApiApiResponse",
+          "usage": "var response = await api.BranchesGetBranchesApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "BrandsGetBrandApi",
+      "method": "GET",
+      "path": "/api/v1/store/brands/{id}",
+      "tag": "Catalog - Brands",
+      "summary": "A single brand/manufacturer's detail - same shape as the list.",
+      "sdk": {
+        "typescript": {
+          "className": "CatalogBrandsApi",
+          "methodName": "brandsGetBrandApi",
+          "usage": "const api = new CatalogBrandsApi(config); const result = await api.brandsGetBrandApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CatalogBrandsApi",
+          "methodName": "brands_get_brand_api",
+          "usage": "api = CatalogBrandsApi(api_client); result = api.brands_get_brand_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CatalogBrandsApi",
+          "methodName": "brandsGetBrandApi",
+          "usage": "$api = new CatalogBrandsApi(null, $config); $result = $api->brandsGetBrandApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CatalogBrandsApi",
+          "interfaceName": "ICatalogBrandsApi",
+          "methodName": "BrandsGetBrandApiAsync",
+          "responseType": "IBrandsGetBrandApiApiResponse",
+          "usage": "var response = await api.BrandsGetBrandApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "BrandsGetBrandsApi",
+      "method": "GET",
+      "path": "/api/v1/store/brands",
+      "tag": "Catalog - Brands",
+      "summary": "Lists brands/manufacturers visible in this store's product filters, paged.",
+      "sdk": {
+        "typescript": {
+          "className": "CatalogBrandsApi",
+          "methodName": "brandsGetBrandsApi",
+          "usage": "const api = new CatalogBrandsApi(config); const result = await api.brandsGetBrandsApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CatalogBrandsApi",
+          "methodName": "brands_get_brands_api",
+          "usage": "api = CatalogBrandsApi(api_client); result = api.brands_get_brands_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CatalogBrandsApi",
+          "methodName": "brandsGetBrandsApi",
+          "usage": "$api = new CatalogBrandsApi(null, $config); $result = $api->brandsGetBrandsApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CatalogBrandsApi",
+          "interfaceName": "ICatalogBrandsApi",
+          "methodName": "BrandsGetBrandsApiAsync",
+          "responseType": "IBrandsGetBrandsApiApiResponse",
+          "usage": "var response = await api.BrandsGetBrandsApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartAddCustomItemApi",
+      "method": "POST",
+      "path": "/api/v1/store/cart/items/custom",
+      "tag": "Cart",
+      "summary": "Adds a one-off custom (non-catalog) line item to the cart.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartAddCustomItemApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartAddCustomItemApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_add_custom_item_api",
+          "usage": "api = CartApi(api_client); result = api.cart_add_custom_item_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartAddCustomItemApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartAddCustomItemApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartAddCustomItemApiAsync",
+          "responseType": "ICartAddCustomItemApiApiResponse",
+          "usage": "var response = await api.CartAddCustomItemApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartAddItemApi",
+      "method": "POST",
+      "path": "/api/v1/store/cart/items",
+      "tag": "Cart",
+      "summary": "Adds a catalog product (by ProductId or Sku) to the cart.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartAddItemApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartAddItemApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_add_item_api",
+          "usage": "api = CartApi(api_client); result = api.cart_add_item_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartAddItemApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartAddItemApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartAddItemApiAsync",
+          "responseType": "ICartAddItemApiApiResponse",
+          "usage": "var response = await api.CartAddItemApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartAddNoteApi",
+      "method": "POST",
+      "path": "/api/v1/store/cart/notes",
+      "tag": "Cart",
+      "summary": "Attaches a note to the cart.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartAddNoteApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartAddNoteApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_add_note_api",
+          "usage": "api = CartApi(api_client); result = api.cart_add_note_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartAddNoteApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartAddNoteApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartAddNoteApiAsync",
+          "responseType": "ICartAddNoteApiApiResponse",
+          "usage": "var response = await api.CartAddNoteApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartAddPromoCodeApi",
+      "method": "POST",
+      "path": "/api/v1/store/cart/promo-codes",
+      "tag": "Cart",
+      "summary": "Applies a promo code to the cart.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartAddPromoCodeApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartAddPromoCodeApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_add_promo_code_api",
+          "usage": "api = CartApi(api_client); result = api.cart_add_promo_code_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartAddPromoCodeApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartAddPromoCodeApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartAddPromoCodeApiAsync",
+          "responseType": "ICartAddPromoCodeApiApiResponse",
+          "usage": "var response = await api.CartAddPromoCodeApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartAddSaveForLaterItemApi",
+      "method": "POST",
+      "path": "/api/v1/store/cart/save-for-later/items",
+      "tag": "Cart",
+      "summary": "Moves a product to the save-for-later hold list.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartAddSaveForLaterItemApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartAddSaveForLaterItemApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_add_save_for_later_item_api",
+          "usage": "api = CartApi(api_client); result = api.cart_add_save_for_later_item_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartAddSaveForLaterItemApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartAddSaveForLaterItemApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartAddSaveForLaterItemApiAsync",
+          "responseType": "ICartAddSaveForLaterItemApiApiResponse",
+          "usage": "var response = await api.CartAddSaveForLaterItemApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartClearCartApi",
+      "method": "DELETE",
+      "path": "/api/v1/store/cart",
+      "tag": "Cart",
+      "summary": "Clears the entire cart, releasing any save-for-later lock.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartClearCartApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartClearCartApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_clear_cart_api",
+          "usage": "api = CartApi(api_client); result = api.cart_clear_cart_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartClearCartApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartClearCartApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartClearCartApiAsync",
+          "responseType": "ICartClearCartApiApiResponse",
+          "usage": "var response = await api.CartClearCartApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartClearSaveForLaterItemsApi",
+      "method": "DELETE",
+      "path": "/api/v1/store/cart/save-for-later",
+      "tag": "Cart",
+      "summary": "Clears the entire save-for-later list.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartClearSaveForLaterItemsApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartClearSaveForLaterItemsApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_clear_save_for_later_items_api",
+          "usage": "api = CartApi(api_client); result = api.cart_clear_save_for_later_items_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartClearSaveForLaterItemsApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartClearSaveForLaterItemsApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartClearSaveForLaterItemsApiAsync",
+          "responseType": "ICartClearSaveForLaterItemsApiApiResponse",
+          "usage": "var response = await api.CartClearSaveForLaterItemsApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartGetCartApi",
+      "method": "GET",
+      "path": "/api/v1/store/cart",
+      "tag": "Cart",
+      "summary": "Gets the current cart.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartGetCartApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartGetCartApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_get_cart_api",
+          "usage": "api = CartApi(api_client); result = api.cart_get_cart_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartGetCartApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartGetCartApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartGetCartApiAsync",
+          "responseType": "ICartGetCartApiApiResponse",
+          "usage": "var response = await api.CartGetCartApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartGetSaveForLaterItemsApi",
+      "method": "GET",
+      "path": "/api/v1/store/cart/save-for-later",
+      "tag": "Cart",
+      "summary": "Lists items on hold (\"saved for later\" - a lightweight, non-shareable list, distinct from\nWishlist/GiftRegistry). Returns bare ProductId/Qty pairs - enrich with the catalog product\nendpoints (e.g. GET api/store/products/{id}) for display, same as the cart items themselves.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartGetSaveForLaterItemsApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartGetSaveForLaterItemsApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_get_save_for_later_items_api",
+          "usage": "api = CartApi(api_client); result = api.cart_get_save_for_later_items_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartGetSaveForLaterItemsApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartGetSaveForLaterItemsApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartGetSaveForLaterItemsApiAsync",
+          "responseType": "ICartGetSaveForLaterItemsApiApiResponse",
+          "usage": "var response = await api.CartGetSaveForLaterItemsApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartGetSaveForLaterMessagingApi",
+      "method": "GET",
+      "path": "/api/v1/store/cart/save-for-later/messaging",
+      "tag": "Cart",
+      "summary": "UI messaging flags (item count, free-shipping/expiry banners) for the save-for-later list.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartGetSaveForLaterMessagingApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartGetSaveForLaterMessagingApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_get_save_for_later_messaging_api",
+          "usage": "api = CartApi(api_client); result = api.cart_get_save_for_later_messaging_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartGetSaveForLaterMessagingApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartGetSaveForLaterMessagingApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartGetSaveForLaterMessagingApiAsync",
+          "responseType": "ICartGetSaveForLaterMessagingApiApiResponse",
+          "usage": "var response = await api.CartGetSaveForLaterMessagingApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartMoveItemToWishlistApi",
+      "method": "POST",
+      "path": "/api/v1/store/cart/items/{id}/move-to-wishlist",
+      "tag": "Cart",
+      "summary": "Moves some or all of a cart line's quantity to the customer's Wishlist (a saved, shareable\nregistry - distinct from save-for-later above). Requires login. Defaults to the customer's\nfirst/default wishlist, creating \"My Wishlist\" if they have none.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartMoveItemToWishlistApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartMoveItemToWishlistApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_move_item_to_wishlist_api",
+          "usage": "api = CartApi(api_client); result = api.cart_move_item_to_wishlist_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartMoveItemToWishlistApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartMoveItemToWishlistApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartMoveItemToWishlistApiAsync",
+          "responseType": "ICartMoveItemToWishlistApiApiResponse",
+          "usage": "var response = await api.CartMoveItemToWishlistApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartRemoveItemApi",
+      "method": "DELETE",
+      "path": "/api/v1/store/cart/items/{id}",
+      "tag": "Cart",
+      "summary": "Removes a line from the cart.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartRemoveItemApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartRemoveItemApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_remove_item_api",
+          "usage": "api = CartApi(api_client); result = api.cart_remove_item_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartRemoveItemApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartRemoveItemApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartRemoveItemApiAsync",
+          "responseType": "ICartRemoveItemApiApiResponse",
+          "usage": "var response = await api.CartRemoveItemApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartRemoveNoteApi",
+      "method": "DELETE",
+      "path": "/api/v1/store/cart/notes/{id}",
+      "tag": "Cart",
+      "summary": "Removes a note from the cart.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartRemoveNoteApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartRemoveNoteApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_remove_note_api",
+          "usage": "api = CartApi(api_client); result = api.cart_remove_note_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartRemoveNoteApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartRemoveNoteApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartRemoveNoteApiAsync",
+          "responseType": "ICartRemoveNoteApiApiResponse",
+          "usage": "var response = await api.CartRemoveNoteApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartRemovePromoCodeApi",
+      "method": "DELETE",
+      "path": "/api/v1/store/cart/promo-codes/{code}",
+      "tag": "Cart",
+      "summary": "Removes a promo code from the cart.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartRemovePromoCodeApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartRemovePromoCodeApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_remove_promo_code_api",
+          "usage": "api = CartApi(api_client); result = api.cart_remove_promo_code_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartRemovePromoCodeApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartRemovePromoCodeApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartRemovePromoCodeApiAsync",
+          "responseType": "ICartRemovePromoCodeApiApiResponse",
+          "usage": "var response = await api.CartRemovePromoCodeApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartRemoveSaveForLaterItemApi",
+      "method": "DELETE",
+      "path": "/api/v1/store/cart/save-for-later/items/{productId}",
+      "tag": "Cart",
+      "summary": "Removes a single item from the save-for-later list.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartRemoveSaveForLaterItemApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartRemoveSaveForLaterItemApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_remove_save_for_later_item_api",
+          "usage": "api = CartApi(api_client); result = api.cart_remove_save_for_later_item_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartRemoveSaveForLaterItemApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartRemoveSaveForLaterItemApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartRemoveSaveForLaterItemApiAsync",
+          "responseType": "ICartRemoveSaveForLaterItemApiApiResponse",
+          "usage": "var response = await api.CartRemoveSaveForLaterItemApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartUpdateItemApi",
+      "method": "PATCH",
+      "path": "/api/v1/store/cart/items/{id}",
+      "tag": "Cart",
+      "summary": "Updates the quantity of an existing cart line.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartUpdateItemApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartUpdateItemApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_update_item_api",
+          "usage": "api = CartApi(api_client); result = api.cart_update_item_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartUpdateItemApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartUpdateItemApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartUpdateItemApiAsync",
+          "responseType": "ICartUpdateItemApiApiResponse",
+          "usage": "var response = await api.CartUpdateItemApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CartValidateCartApi",
+      "method": "GET",
+      "path": "/api/v1/store/cart/validate",
+      "tag": "Cart",
+      "summary": "Validates the cart (stock, pricing, policy issues) without mutating it.",
+      "sdk": {
+        "typescript": {
+          "className": "CartApi",
+          "methodName": "cartValidateCartApi",
+          "usage": "const api = new CartApi(config); const result = await api.cartValidateCartApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CartApi",
+          "methodName": "cart_validate_cart_api",
+          "usage": "api = CartApi(api_client); result = api.cart_validate_cart_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CartApi",
+          "methodName": "cartValidateCartApi",
+          "usage": "$api = new CartApi(null, $config); $result = $api->cartValidateCartApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CartApi",
+          "interfaceName": "ICartApi",
+          "methodName": "CartValidateCartApiAsync",
+          "responseType": "ICartValidateCartApiApiResponse",
+          "usage": "var response = await api.CartValidateCartApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CatalogGetCategoriesApi",
+      "method": "GET",
+      "path": "/api/v1/store/catalog/categories",
+      "tag": "Catalog",
+      "summary": "The full category tree - only categories with products (directly or via a descendant) are included, mirroring StoreApp's own category listing.",
+      "sdk": {
+        "typescript": {
+          "className": "CatalogApi",
+          "methodName": "catalogGetCategoriesApi",
+          "usage": "const api = new CatalogApi(config); const result = await api.catalogGetCategoriesApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CatalogApi",
+          "methodName": "catalog_get_categories_api",
+          "usage": "api = CatalogApi(api_client); result = api.catalog_get_categories_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CatalogApi",
+          "methodName": "catalogGetCategoriesApi",
+          "usage": "$api = new CatalogApi(null, $config); $result = $api->catalogGetCategoriesApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CatalogApi",
+          "interfaceName": "ICatalogApi",
+          "methodName": "CatalogGetCategoriesApiAsync",
+          "responseType": "ICatalogGetCategoriesApiApiResponse",
+          "usage": "var response = await api.CatalogGetCategoriesApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CatalogGetCategoryApi",
+      "method": "GET",
+      "path": "/api/v1/store/catalog/categories/{id}",
+      "tag": "Catalog",
+      "summary": "A single category's detail, including its immediate subtree - same CategoryModel shape as\nGetCategories (not the heavier Admin-oriented CategoryGet, which nests an unpaginated product list,\nsitemap entries, and admin metadata), so a category looked up individually looks identical to one\nfound by walking the tree.",
+      "sdk": {
+        "typescript": {
+          "className": "CatalogApi",
+          "methodName": "catalogGetCategoryApi",
+          "usage": "const api = new CatalogApi(config); const result = await api.catalogGetCategoryApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CatalogApi",
+          "methodName": "catalog_get_category_api",
+          "usage": "api = CatalogApi(api_client); result = api.catalog_get_category_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CatalogApi",
+          "methodName": "catalogGetCategoryApi",
+          "usage": "$api = new CatalogApi(null, $config); $result = $api->catalogGetCategoryApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CatalogApi",
+          "interfaceName": "ICatalogApi",
+          "methodName": "CatalogGetCategoryApiAsync",
+          "responseType": "ICatalogGetCategoryApiApiResponse",
+          "usage": "var response = await api.CatalogGetCategoryApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CatalogGetMenuApi",
+      "method": "GET",
+      "path": "/api/v1/store/catalog/menu/{type}",
+      "tag": "Catalog",
+      "summary": "The CMS-managed nav menu - \"main\" or \"footer\".",
+      "sdk": {
+        "typescript": {
+          "className": "CatalogApi",
+          "methodName": "catalogGetMenuApi",
+          "usage": "const api = new CatalogApi(config); const result = await api.catalogGetMenuApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CatalogApi",
+          "methodName": "catalog_get_menu_api",
+          "usage": "api = CatalogApi(api_client); result = api.catalog_get_menu_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CatalogApi",
+          "methodName": "catalogGetMenuApi",
+          "usage": "$api = new CatalogApi(null, $config); $result = $api->catalogGetMenuApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CatalogApi",
+          "interfaceName": "ICatalogApi",
+          "methodName": "CatalogGetMenuApiAsync",
+          "responseType": "ICatalogGetMenuApiApiResponse",
+          "usage": "var response = await api.CatalogGetMenuApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CheckoutAddGiftCardApi",
+      "method": "POST",
+      "path": "/api/v1/store/checkout/gift-cards",
+      "tag": "Checkout",
+      "summary": "Redeems a gift card against the cart. Uses the same voucher engine as promo codes (see\n    CartController), just a different VoucherType.",
+      "sdk": {
+        "typescript": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutAddGiftCardApi",
+          "usage": "const api = new CheckoutApi(config); const result = await api.checkoutAddGiftCardApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CheckoutApi",
+          "methodName": "checkout_add_gift_card_api",
+          "usage": "api = CheckoutApi(api_client); result = api.checkout_add_gift_card_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutAddGiftCardApi",
+          "usage": "$api = new CheckoutApi(null, $config); $result = $api->checkoutAddGiftCardApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CheckoutApi",
+          "interfaceName": "ICheckoutApi",
+          "methodName": "CheckoutAddGiftCardApiAsync",
+          "responseType": "ICheckoutAddGiftCardApiApiResponse",
+          "usage": "var response = await api.CheckoutAddGiftCardApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CheckoutApplyWalletApi",
+      "method": "POST",
+      "path": "/api/v1/store/checkout/wallet",
+      "tag": "Checkout",
+      "summary": "Applies wallet points to the cart as payment.",
+      "sdk": {
+        "typescript": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutApplyWalletApi",
+          "usage": "const api = new CheckoutApi(config); const result = await api.checkoutApplyWalletApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CheckoutApi",
+          "methodName": "checkout_apply_wallet_api",
+          "usage": "api = CheckoutApi(api_client); result = api.checkout_apply_wallet_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutApplyWalletApi",
+          "usage": "$api = new CheckoutApi(null, $config); $result = $api->checkoutApplyWalletApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CheckoutApi",
+          "interfaceName": "ICheckoutApi",
+          "methodName": "CheckoutApplyWalletApiAsync",
+          "responseType": "ICheckoutApplyWalletApiApiResponse",
+          "usage": "var response = await api.CheckoutApplyWalletApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CheckoutCreateOrderApi",
+      "method": "POST",
+      "path": "/api/v1/store/checkout/orders",
+      "tag": "Checkout",
+      "summary": "The cart-to-order handoff - creates the order from the current cart. Storefront never collects\ncard details itself: on success, RequiresPayment/RedirectUrl tell the frontend whether anything\nfurther is needed and, if so, the URL to send the browser to - that provider's own hosted payment\npage, whether that's Stripe Checkout or one of the store's other configured gateways. Never an\nembedded card form.\n\nThis moves money (or at least commits stock and creates an order) - mobile networks retry, so an\noptional Idempotency-Key header is honoured (see IdempotentAttribute): the same key with the same\nrequest replays the original response instead of creating a second order; the same key with a\ndifferent request is rejected (422) rather than silently creating a different order under a key\nthe client thinks it already used.",
+      "sdk": {
+        "typescript": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutCreateOrderApi",
+          "usage": "const api = new CheckoutApi(config); const result = await api.checkoutCreateOrderApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CheckoutApi",
+          "methodName": "checkout_create_order_api",
+          "usage": "api = CheckoutApi(api_client); result = api.checkout_create_order_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutCreateOrderApi",
+          "usage": "$api = new CheckoutApi(null, $config); $result = $api->checkoutCreateOrderApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CheckoutApi",
+          "interfaceName": "ICheckoutApi",
+          "methodName": "CheckoutCreateOrderApiAsync",
+          "responseType": "ICheckoutCreateOrderApiApiResponse",
+          "usage": "var response = await api.CheckoutCreateOrderApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CheckoutGetCollectionAddressesApi",
+      "method": "GET",
+      "path": "/api/v1/store/checkout/collection-addresses",
+      "tag": "Checkout",
+      "summary": "Lists the store's click-and-collect points valid for the current cart.",
+      "sdk": {
+        "typescript": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutGetCollectionAddressesApi",
+          "usage": "const api = new CheckoutApi(config); const result = await api.checkoutGetCollectionAddressesApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CheckoutApi",
+          "methodName": "checkout_get_collection_addresses_api",
+          "usage": "api = CheckoutApi(api_client); result = api.checkout_get_collection_addresses_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutGetCollectionAddressesApi",
+          "usage": "$api = new CheckoutApi(null, $config); $result = $api->checkoutGetCollectionAddressesApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CheckoutApi",
+          "interfaceName": "ICheckoutApi",
+          "methodName": "CheckoutGetCollectionAddressesApiAsync",
+          "responseType": "ICheckoutGetCollectionAddressesApiApiResponse",
+          "usage": "var response = await api.CheckoutGetCollectionAddressesApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CheckoutGetDeliveryAddressesApi",
+      "method": "GET",
+      "path": "/api/v1/store/checkout/addresses/delivery",
+      "tag": "Checkout",
+      "summary": "Lists the logged-in customer's saved delivery addresses.",
+      "sdk": {
+        "typescript": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutGetDeliveryAddressesApi",
+          "usage": "const api = new CheckoutApi(config); const result = await api.checkoutGetDeliveryAddressesApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CheckoutApi",
+          "methodName": "checkout_get_delivery_addresses_api",
+          "usage": "api = CheckoutApi(api_client); result = api.checkout_get_delivery_addresses_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutGetDeliveryAddressesApi",
+          "usage": "$api = new CheckoutApi(null, $config); $result = $api->checkoutGetDeliveryAddressesApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CheckoutApi",
+          "interfaceName": "ICheckoutApi",
+          "methodName": "CheckoutGetDeliveryAddressesApiAsync",
+          "responseType": "ICheckoutGetDeliveryAddressesApiApiResponse",
+          "usage": "var response = await api.CheckoutGetDeliveryAddressesApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CheckoutGetPaymentOptionsApi",
+      "method": "GET",
+      "path": "/api/v1/store/checkout/payment-options",
+      "tag": "Checkout",
+      "summary": "Lists the payment methods available for the current cart.",
+      "sdk": {
+        "typescript": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutGetPaymentOptionsApi",
+          "usage": "const api = new CheckoutApi(config); const result = await api.checkoutGetPaymentOptionsApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CheckoutApi",
+          "methodName": "checkout_get_payment_options_api",
+          "usage": "api = CheckoutApi(api_client); result = api.checkout_get_payment_options_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutGetPaymentOptionsApi",
+          "usage": "$api = new CheckoutApi(null, $config); $result = $api->checkoutGetPaymentOptionsApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CheckoutApi",
+          "interfaceName": "ICheckoutApi",
+          "methodName": "CheckoutGetPaymentOptionsApiAsync",
+          "responseType": "ICheckoutGetPaymentOptionsApiApiResponse",
+          "usage": "var response = await api.CheckoutGetPaymentOptionsApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CheckoutGetShippingOptionsApi",
+      "method": "GET",
+      "path": "/api/v1/store/checkout/shipping-options",
+      "tag": "Checkout",
+      "summary": "Whether shipping is available to the cart's current delivery address, and what's configured.",
+      "sdk": {
+        "typescript": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutGetShippingOptionsApi",
+          "usage": "const api = new CheckoutApi(config); const result = await api.checkoutGetShippingOptionsApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CheckoutApi",
+          "methodName": "checkout_get_shipping_options_api",
+          "usage": "api = CheckoutApi(api_client); result = api.checkout_get_shipping_options_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutGetShippingOptionsApi",
+          "usage": "$api = new CheckoutApi(null, $config); $result = $api->checkoutGetShippingOptionsApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CheckoutApi",
+          "interfaceName": "ICheckoutApi",
+          "methodName": "CheckoutGetShippingOptionsApiAsync",
+          "responseType": "ICheckoutGetShippingOptionsApiApiResponse",
+          "usage": "var response = await api.CheckoutGetShippingOptionsApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CheckoutGetShippingQuoteApi",
+      "method": "POST",
+      "path": "/api/v1/store/checkout/shipping-quote",
+      "tag": "Checkout",
+      "summary": "Gets a live shipping quote for a specific provider against the cart's delivery address.",
+      "sdk": {
+        "typescript": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutGetShippingQuoteApi",
+          "usage": "const api = new CheckoutApi(config); const result = await api.checkoutGetShippingQuoteApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CheckoutApi",
+          "methodName": "checkout_get_shipping_quote_api",
+          "usage": "api = CheckoutApi(api_client); result = api.checkout_get_shipping_quote_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutGetShippingQuoteApi",
+          "usage": "$api = new CheckoutApi(null, $config); $result = $api->checkoutGetShippingQuoteApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CheckoutApi",
+          "interfaceName": "ICheckoutApi",
+          "methodName": "CheckoutGetShippingQuoteApiAsync",
+          "responseType": "ICheckoutGetShippingQuoteApiApiResponse",
+          "usage": "var response = await api.CheckoutGetShippingQuoteApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CheckoutRemoveGiftCardApi",
+      "method": "DELETE",
+      "path": "/api/v1/store/checkout/gift-cards/{code}",
+      "tag": "Checkout",
+      "summary": "Removes a redeemed gift card from the cart.",
+      "sdk": {
+        "typescript": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutRemoveGiftCardApi",
+          "usage": "const api = new CheckoutApi(config); const result = await api.checkoutRemoveGiftCardApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CheckoutApi",
+          "methodName": "checkout_remove_gift_card_api",
+          "usage": "api = CheckoutApi(api_client); result = api.checkout_remove_gift_card_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutRemoveGiftCardApi",
+          "usage": "$api = new CheckoutApi(null, $config); $result = $api->checkoutRemoveGiftCardApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CheckoutApi",
+          "interfaceName": "ICheckoutApi",
+          "methodName": "CheckoutRemoveGiftCardApiAsync",
+          "responseType": "ICheckoutRemoveGiftCardApiApiResponse",
+          "usage": "var response = await api.CheckoutRemoveGiftCardApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CheckoutRemoveWalletApi",
+      "method": "DELETE",
+      "path": "/api/v1/store/checkout/wallet",
+      "tag": "Checkout",
+      "summary": "Removes wallet points applied to the cart.",
+      "sdk": {
+        "typescript": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutRemoveWalletApi",
+          "usage": "const api = new CheckoutApi(config); const result = await api.checkoutRemoveWalletApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CheckoutApi",
+          "methodName": "checkout_remove_wallet_api",
+          "usage": "api = CheckoutApi(api_client); result = api.checkout_remove_wallet_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutRemoveWalletApi",
+          "usage": "$api = new CheckoutApi(null, $config); $result = $api->checkoutRemoveWalletApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CheckoutApi",
+          "interfaceName": "ICheckoutApi",
+          "methodName": "CheckoutRemoveWalletApiAsync",
+          "responseType": "ICheckoutRemoveWalletApiApiResponse",
+          "usage": "var response = await api.CheckoutRemoveWalletApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CheckoutSetCollectionAddressApi",
+      "method": "POST",
+      "path": "/api/v1/store/checkout/collection-address",
+      "tag": "Checkout",
+      "summary": "Sets a click-and-collect point as the cart's collection address.",
+      "sdk": {
+        "typescript": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutSetCollectionAddressApi",
+          "usage": "const api = new CheckoutApi(config); const result = await api.checkoutSetCollectionAddressApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CheckoutApi",
+          "methodName": "checkout_set_collection_address_api",
+          "usage": "api = CheckoutApi(api_client); result = api.checkout_set_collection_address_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutSetCollectionAddressApi",
+          "usage": "$api = new CheckoutApi(null, $config); $result = $api->checkoutSetCollectionAddressApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CheckoutApi",
+          "interfaceName": "ICheckoutApi",
+          "methodName": "CheckoutSetCollectionAddressApiAsync",
+          "responseType": "ICheckoutSetCollectionAddressApiApiResponse",
+          "usage": "var response = await api.CheckoutSetCollectionAddressApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CheckoutSetContactDetailsApi",
+      "method": "POST",
+      "path": "/api/v1/store/checkout/contact-details",
+      "tag": "Checkout",
+      "summary": "Sets contact details on the cart (Email required; Name/Phone/Instructions/CustomerTax/\nPurchaseOrderNumber/NewsletterSubscribe recognised, anything else stored as a custom key-value).",
+      "sdk": {
+        "typescript": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutSetContactDetailsApi",
+          "usage": "const api = new CheckoutApi(config); const result = await api.checkoutSetContactDetailsApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CheckoutApi",
+          "methodName": "checkout_set_contact_details_api",
+          "usage": "api = CheckoutApi(api_client); result = api.checkout_set_contact_details_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutSetContactDetailsApi",
+          "usage": "$api = new CheckoutApi(null, $config); $result = $api->checkoutSetContactDetailsApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CheckoutApi",
+          "interfaceName": "ICheckoutApi",
+          "methodName": "CheckoutSetContactDetailsApiAsync",
+          "responseType": "ICheckoutSetContactDetailsApiApiResponse",
+          "usage": "var response = await api.CheckoutSetContactDetailsApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CheckoutSetDeliveryAddressApi",
+      "method": "POST",
+      "path": "/api/v1/store/checkout/delivery-address",
+      "tag": "Checkout",
+      "summary": "Sets the cart's delivery address, from a saved AddressId or guest address fields. When a logged-in\ncustomer supplies guest fields (no AddressId) rather than picking a saved one, the address is also\npersisted to their address book first - matching StoreApp's add-delivery-address behaviour - so it\nshows up in GetDeliveryAddresses on a future order instead of only ever living on this one cart.",
+      "sdk": {
+        "typescript": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutSetDeliveryAddressApi",
+          "usage": "const api = new CheckoutApi(config); const result = await api.checkoutSetDeliveryAddressApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CheckoutApi",
+          "methodName": "checkout_set_delivery_address_api",
+          "usage": "api = CheckoutApi(api_client); result = api.checkout_set_delivery_address_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutSetDeliveryAddressApi",
+          "usage": "$api = new CheckoutApi(null, $config); $result = $api->checkoutSetDeliveryAddressApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CheckoutApi",
+          "interfaceName": "ICheckoutApi",
+          "methodName": "CheckoutSetDeliveryAddressApiAsync",
+          "responseType": "ICheckoutSetDeliveryAddressApiApiResponse",
+          "usage": "var response = await api.CheckoutSetDeliveryAddressApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CheckoutSetPaymentOptionApi",
+      "method": "POST",
+      "path": "/api/v1/store/checkout/payment-option",
+      "tag": "Checkout",
+      "summary": "Selects a payment method for the cart.",
+      "sdk": {
+        "typescript": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutSetPaymentOptionApi",
+          "usage": "const api = new CheckoutApi(config); const result = await api.checkoutSetPaymentOptionApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CheckoutApi",
+          "methodName": "checkout_set_payment_option_api",
+          "usage": "api = CheckoutApi(api_client); result = api.checkout_set_payment_option_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutSetPaymentOptionApi",
+          "usage": "$api = new CheckoutApi(null, $config); $result = $api->checkoutSetPaymentOptionApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CheckoutApi",
+          "interfaceName": "ICheckoutApi",
+          "methodName": "CheckoutSetPaymentOptionApiAsync",
+          "responseType": "ICheckoutSetPaymentOptionApiApiResponse",
+          "usage": "var response = await api.CheckoutSetPaymentOptionApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "CheckoutSetShippingOptionApi",
+      "method": "POST",
+      "path": "/api/v1/store/checkout/shipping-option",
+      "tag": "Checkout",
+      "summary": "Selects a shipping method/quote for the cart.",
+      "sdk": {
+        "typescript": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutSetShippingOptionApi",
+          "usage": "const api = new CheckoutApi(config); const result = await api.checkoutSetShippingOptionApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CheckoutApi",
+          "methodName": "checkout_set_shipping_option_api",
+          "usage": "api = CheckoutApi(api_client); result = api.checkout_set_shipping_option_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CheckoutApi",
+          "methodName": "checkoutSetShippingOptionApi",
+          "usage": "$api = new CheckoutApi(null, $config); $result = $api->checkoutSetShippingOptionApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CheckoutApi",
+          "interfaceName": "ICheckoutApi",
+          "methodName": "CheckoutSetShippingOptionApiAsync",
+          "responseType": "ICheckoutSetShippingOptionApiApiResponse",
+          "usage": "var response = await api.CheckoutSetShippingOptionApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "EnquiryCreateEnquiryApi",
+      "method": "POST",
+      "path": "/api/v1/store/enquiries",
+      "tag": "Enquiries",
+      "summary": "Creates an enquiry (RFQ) from the current cart - the cart's lines/quote become the enquiry's, the cart\nitself is emptied from the session, and the customer + merchant are notified. Unlike checkout, this\nnever takes payment: PaymentStatus is set to NotRequired and the enquiry is immediately Complete.",
+      "sdk": {
+        "typescript": {
+          "className": "EnquiriesApi",
+          "methodName": "enquiryCreateEnquiryApi",
+          "usage": "const api = new EnquiriesApi(config); const result = await api.enquiryCreateEnquiryApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "EnquiriesApi",
+          "methodName": "enquiry_create_enquiry_api",
+          "usage": "api = EnquiriesApi(api_client); result = api.enquiry_create_enquiry_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "EnquiriesApi",
+          "methodName": "enquiryCreateEnquiryApi",
+          "usage": "$api = new EnquiriesApi(null, $config); $result = $api->enquiryCreateEnquiryApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "EnquiriesApi",
+          "interfaceName": "IEnquiriesApi",
+          "methodName": "EnquiryCreateEnquiryApiAsync",
+          "responseType": "IEnquiryCreateEnquiryApiApiResponse",
+          "usage": "var response = await api.EnquiryCreateEnquiryApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "EnquiryGetEnquiriesApi",
+      "method": "GET",
+      "path": "/api/v1/store/enquiries",
+      "tag": "Enquiries",
+      "summary": "Lists the current customer's enquiries, most recent first.",
+      "sdk": {
+        "typescript": {
+          "className": "EnquiriesApi",
+          "methodName": "enquiryGetEnquiriesApi",
+          "usage": "const api = new EnquiriesApi(config); const result = await api.enquiryGetEnquiriesApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "EnquiriesApi",
+          "methodName": "enquiry_get_enquiries_api",
+          "usage": "api = EnquiriesApi(api_client); result = api.enquiry_get_enquiries_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "EnquiriesApi",
+          "methodName": "enquiryGetEnquiriesApi",
+          "usage": "$api = new EnquiriesApi(null, $config); $result = $api->enquiryGetEnquiriesApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "EnquiriesApi",
+          "interfaceName": "IEnquiriesApi",
+          "methodName": "EnquiryGetEnquiriesApiAsync",
+          "responseType": "IEnquiryGetEnquiriesApiApiResponse",
+          "usage": "var response = await api.EnquiryGetEnquiriesApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "EnquiryGetEnquiryApi",
+      "method": "GET",
+      "path": "/api/v1/store/enquiries/{enquiryId}",
+      "tag": "Enquiries",
+      "summary": "Gets a single enquiry's full detail. 404s (rather than 403s) one that exists but isn't the customer's.",
+      "sdk": {
+        "typescript": {
+          "className": "EnquiriesApi",
+          "methodName": "enquiryGetEnquiryApi",
+          "usage": "const api = new EnquiriesApi(config); const result = await api.enquiryGetEnquiryApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "EnquiriesApi",
+          "methodName": "enquiry_get_enquiry_api",
+          "usage": "api = EnquiriesApi(api_client); result = api.enquiry_get_enquiry_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "EnquiriesApi",
+          "methodName": "enquiryGetEnquiryApi",
+          "usage": "$api = new EnquiriesApi(null, $config); $result = $api->enquiryGetEnquiryApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "EnquiriesApi",
+          "interfaceName": "IEnquiriesApi",
+          "methodName": "EnquiryGetEnquiryApiAsync",
+          "responseType": "IEnquiryGetEnquiryApiApiResponse",
+          "usage": "var response = await api.EnquiryGetEnquiryApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "GiftRegistryAddItemApi",
+      "method": "POST",
+      "path": "/api/v1/store/gift-registries/{id}/items",
+      "tag": "Gift Registries",
+      "summary": "Adds a product to a gift registry.",
+      "sdk": {
+        "typescript": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryAddItemApi",
+          "usage": "const api = new GiftRegistriesApi(config); const result = await api.giftRegistryAddItemApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "GiftRegistriesApi",
+          "methodName": "gift_registry_add_item_api",
+          "usage": "api = GiftRegistriesApi(api_client); result = api.gift_registry_add_item_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryAddItemApi",
+          "usage": "$api = new GiftRegistriesApi(null, $config); $result = $api->giftRegistryAddItemApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "GiftRegistriesApi",
+          "interfaceName": "IGiftRegistriesApi",
+          "methodName": "GiftRegistryAddItemApiAsync",
+          "responseType": "IGiftRegistryAddItemApiApiResponse",
+          "usage": "var response = await api.GiftRegistryAddItemApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "GiftRegistryCreateGiftRegistryApi",
+      "method": "POST",
+      "path": "/api/v1/store/gift-registries",
+      "tag": "Gift Registries",
+      "summary": "Creates a new gift registry.",
+      "sdk": {
+        "typescript": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryCreateGiftRegistryApi",
+          "usage": "const api = new GiftRegistriesApi(config); const result = await api.giftRegistryCreateGiftRegistryApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "GiftRegistriesApi",
+          "methodName": "gift_registry_create_gift_registry_api",
+          "usage": "api = GiftRegistriesApi(api_client); result = api.gift_registry_create_gift_registry_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryCreateGiftRegistryApi",
+          "usage": "$api = new GiftRegistriesApi(null, $config); $result = $api->giftRegistryCreateGiftRegistryApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "GiftRegistriesApi",
+          "interfaceName": "IGiftRegistriesApi",
+          "methodName": "GiftRegistryCreateGiftRegistryApiAsync",
+          "responseType": "IGiftRegistryCreateGiftRegistryApiApiResponse",
+          "usage": "var response = await api.GiftRegistryCreateGiftRegistryApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "GiftRegistryDeleteGiftRegistryApi",
+      "method": "DELETE",
+      "path": "/api/v1/store/gift-registries/{id}",
+      "tag": "Gift Registries",
+      "summary": "Deletes a gift registry entirely.",
+      "sdk": {
+        "typescript": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryDeleteGiftRegistryApi",
+          "usage": "const api = new GiftRegistriesApi(config); const result = await api.giftRegistryDeleteGiftRegistryApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "GiftRegistriesApi",
+          "methodName": "gift_registry_delete_gift_registry_api",
+          "usage": "api = GiftRegistriesApi(api_client); result = api.gift_registry_delete_gift_registry_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryDeleteGiftRegistryApi",
+          "usage": "$api = new GiftRegistriesApi(null, $config); $result = $api->giftRegistryDeleteGiftRegistryApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "GiftRegistriesApi",
+          "interfaceName": "IGiftRegistriesApi",
+          "methodName": "GiftRegistryDeleteGiftRegistryApiAsync",
+          "responseType": "IGiftRegistryDeleteGiftRegistryApiApiResponse",
+          "usage": "var response = await api.GiftRegistryDeleteGiftRegistryApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "GiftRegistryGetGiftRegistriesApi",
+      "method": "GET",
+      "path": "/api/v1/store/gift-registries",
+      "tag": "Gift Registries",
+      "summary": "Lists the current customer's gift registries.",
+      "sdk": {
+        "typescript": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryGetGiftRegistriesApi",
+          "usage": "const api = new GiftRegistriesApi(config); const result = await api.giftRegistryGetGiftRegistriesApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "GiftRegistriesApi",
+          "methodName": "gift_registry_get_gift_registries_api",
+          "usage": "api = GiftRegistriesApi(api_client); result = api.gift_registry_get_gift_registries_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryGetGiftRegistriesApi",
+          "usage": "$api = new GiftRegistriesApi(null, $config); $result = $api->giftRegistryGetGiftRegistriesApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "GiftRegistriesApi",
+          "interfaceName": "IGiftRegistriesApi",
+          "methodName": "GiftRegistryGetGiftRegistriesApiAsync",
+          "responseType": "IGiftRegistryGetGiftRegistriesApiApiResponse",
+          "usage": "var response = await api.GiftRegistryGetGiftRegistriesApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "GiftRegistryGetGiftRegistryApi",
+      "method": "GET",
+      "path": "/api/v1/store/gift-registries/{documentRef}",
+      "tag": "Gift Registries",
+      "summary": "Gets a single gift registry's full detail by its reference - anonymous, since anyone with the link should be able to view (and buy from) it.",
+      "sdk": {
+        "typescript": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryGetGiftRegistryApi",
+          "usage": "const api = new GiftRegistriesApi(config); const result = await api.giftRegistryGetGiftRegistryApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "GiftRegistriesApi",
+          "methodName": "gift_registry_get_gift_registry_api",
+          "usage": "api = GiftRegistriesApi(api_client); result = api.gift_registry_get_gift_registry_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryGetGiftRegistryApi",
+          "usage": "$api = new GiftRegistriesApi(null, $config); $result = $api->giftRegistryGetGiftRegistryApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "GiftRegistriesApi",
+          "interfaceName": "IGiftRegistriesApi",
+          "methodName": "GiftRegistryGetGiftRegistryApiAsync",
+          "responseType": "IGiftRegistryGetGiftRegistryApiApiResponse",
+          "usage": "var response = await api.GiftRegistryGetGiftRegistryApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "GiftRegistryMarkItemPurchaseApi",
+      "method": "POST",
+      "path": "/api/v1/store/gift-registries/{id}/items/{lineId}/purchase",
+      "tag": "Gift Registries",
+      "summary": "Records that a gift-giver is buying (or has bought) an item off someone else's registry. Deliberately\nnot owner-gated - only login is required, not that the caller owns this registry - since the whole\npoint of a gift registry is that other people buy from it.",
+      "sdk": {
+        "typescript": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryMarkItemPurchaseApi",
+          "usage": "const api = new GiftRegistriesApi(config); const result = await api.giftRegistryMarkItemPurchaseApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "GiftRegistriesApi",
+          "methodName": "gift_registry_mark_item_purchase_api",
+          "usage": "api = GiftRegistriesApi(api_client); result = api.gift_registry_mark_item_purchase_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryMarkItemPurchaseApi",
+          "usage": "$api = new GiftRegistriesApi(null, $config); $result = $api->giftRegistryMarkItemPurchaseApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "GiftRegistriesApi",
+          "interfaceName": "IGiftRegistriesApi",
+          "methodName": "GiftRegistryMarkItemPurchaseApiAsync",
+          "responseType": "IGiftRegistryMarkItemPurchaseApiApiResponse",
+          "usage": "var response = await api.GiftRegistryMarkItemPurchaseApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "GiftRegistryRemoveItemApi",
+      "method": "DELETE",
+      "path": "/api/v1/store/gift-registries/{id}/items/{lineId}",
+      "tag": "Gift Registries",
+      "summary": "Removes an item from a gift registry.",
+      "sdk": {
+        "typescript": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryRemoveItemApi",
+          "usage": "const api = new GiftRegistriesApi(config); const result = await api.giftRegistryRemoveItemApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "GiftRegistriesApi",
+          "methodName": "gift_registry_remove_item_api",
+          "usage": "api = GiftRegistriesApi(api_client); result = api.gift_registry_remove_item_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryRemoveItemApi",
+          "usage": "$api = new GiftRegistriesApi(null, $config); $result = $api->giftRegistryRemoveItemApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "GiftRegistriesApi",
+          "interfaceName": "IGiftRegistriesApi",
+          "methodName": "GiftRegistryRemoveItemApiAsync",
+          "responseType": "IGiftRegistryRemoveItemApiApiResponse",
+          "usage": "var response = await api.GiftRegistryRemoveItemApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "GiftRegistryUpdateGiftRegistryApi",
+      "method": "PATCH",
+      "path": "/api/v1/store/gift-registries/{id}",
+      "tag": "Gift Registries",
+      "summary": "Renames a gift registry or updates its occasion. Only fields present in the request are changed.",
+      "sdk": {
+        "typescript": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryUpdateGiftRegistryApi",
+          "usage": "const api = new GiftRegistriesApi(config); const result = await api.giftRegistryUpdateGiftRegistryApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "GiftRegistriesApi",
+          "methodName": "gift_registry_update_gift_registry_api",
+          "usage": "api = GiftRegistriesApi(api_client); result = api.gift_registry_update_gift_registry_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryUpdateGiftRegistryApi",
+          "usage": "$api = new GiftRegistriesApi(null, $config); $result = $api->giftRegistryUpdateGiftRegistryApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "GiftRegistriesApi",
+          "interfaceName": "IGiftRegistriesApi",
+          "methodName": "GiftRegistryUpdateGiftRegistryApiAsync",
+          "responseType": "IGiftRegistryUpdateGiftRegistryApiApiResponse",
+          "usage": "var response = await api.GiftRegistryUpdateGiftRegistryApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "GiftRegistryUpdateItemQtyApi",
+      "method": "PATCH",
+      "path": "/api/v1/store/gift-registries/{id}/items/{lineId}",
+      "tag": "Gift Registries",
+      "summary": "Updates an item's desired quantity on a gift registry.",
+      "sdk": {
+        "typescript": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryUpdateItemQtyApi",
+          "usage": "const api = new GiftRegistriesApi(config); const result = await api.giftRegistryUpdateItemQtyApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "GiftRegistriesApi",
+          "methodName": "gift_registry_update_item_qty_api",
+          "usage": "api = GiftRegistriesApi(api_client); result = api.gift_registry_update_item_qty_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "GiftRegistriesApi",
+          "methodName": "giftRegistryUpdateItemQtyApi",
+          "usage": "$api = new GiftRegistriesApi(null, $config); $result = $api->giftRegistryUpdateItemQtyApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "GiftRegistriesApi",
+          "interfaceName": "IGiftRegistriesApi",
+          "methodName": "GiftRegistryUpdateItemQtyApiAsync",
+          "responseType": "IGiftRegistryUpdateItemQtyApiApiResponse",
+          "usage": "var response = await api.GiftRegistryUpdateItemQtyApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "MembersAcceptMembershipRequestApi",
+      "method": "POST",
+      "path": "/api/v1/store/account/members/membership-requests/{requestId}/accept",
+      "tag": "Account - Members (B2B)",
+      "summary": "Accepts a pending membership request (joining a corporate account as a member).",
+      "sdk": {
+        "typescript": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersAcceptMembershipRequestApi",
+          "usage": "const api = new AccountMembersB2BApi(config); const result = await api.membersAcceptMembershipRequestApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "members_accept_membership_request_api",
+          "usage": "api = AccountMembersB2BApi(api_client); result = api.members_accept_membership_request_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersAcceptMembershipRequestApi",
+          "usage": "$api = new AccountMembersB2BApi(null, $config); $result = $api->membersAcceptMembershipRequestApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountMembersB2BApi",
+          "interfaceName": "IAccountMembersB2BApi",
+          "methodName": "MembersAcceptMembershipRequestApiAsync",
+          "responseType": "IMembersAcceptMembershipRequestApiApiResponse",
+          "usage": "var response = await api.MembersAcceptMembershipRequestApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "MembersCancelInvitationApi",
+      "method": "POST",
+      "path": "/api/v1/store/account/members/invitations/{invitationId}/cancel",
+      "tag": "Account - Members (B2B)",
+      "summary": "Cancels a pending invitation belonging to the current account.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersCancelInvitationApi",
+          "usage": "const api = new AccountMembersB2BApi(config); const result = await api.membersCancelInvitationApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "members_cancel_invitation_api",
+          "usage": "api = AccountMembersB2BApi(api_client); result = api.members_cancel_invitation_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersCancelInvitationApi",
+          "usage": "$api = new AccountMembersB2BApi(null, $config); $result = $api->membersCancelInvitationApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountMembersB2BApi",
+          "interfaceName": "IAccountMembersB2BApi",
+          "methodName": "MembersCancelInvitationApiAsync",
+          "responseType": "IMembersCancelInvitationApiApiResponse",
+          "usage": "var response = await api.MembersCancelInvitationApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "MembersDeclineMembershipRequestApi",
+      "method": "POST",
+      "path": "/api/v1/store/account/members/membership-requests/{requestId}/decline",
+      "tag": "Account - Members (B2B)",
+      "summary": "Declines a pending membership request.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersDeclineMembershipRequestApi",
+          "usage": "const api = new AccountMembersB2BApi(config); const result = await api.membersDeclineMembershipRequestApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "members_decline_membership_request_api",
+          "usage": "api = AccountMembersB2BApi(api_client); result = api.members_decline_membership_request_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersDeclineMembershipRequestApi",
+          "usage": "$api = new AccountMembersB2BApi(null, $config); $result = $api->membersDeclineMembershipRequestApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountMembersB2BApi",
+          "interfaceName": "IAccountMembersB2BApi",
+          "methodName": "MembersDeclineMembershipRequestApiAsync",
+          "responseType": "IMembersDeclineMembershipRequestApiApiResponse",
+          "usage": "var response = await api.MembersDeclineMembershipRequestApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "MembersDeleteMemberApi",
+      "method": "DELETE",
+      "path": "/api/v1/store/account/members/{personId}",
+      "tag": "Account - Members (B2B)",
+      "summary": "Removes a member from this corporate account.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersDeleteMemberApi",
+          "usage": "const api = new AccountMembersB2BApi(config); const result = await api.membersDeleteMemberApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "members_delete_member_api",
+          "usage": "api = AccountMembersB2BApi(api_client); result = api.members_delete_member_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersDeleteMemberApi",
+          "usage": "$api = new AccountMembersB2BApi(null, $config); $result = $api->membersDeleteMemberApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountMembersB2BApi",
+          "interfaceName": "IAccountMembersB2BApi",
+          "methodName": "MembersDeleteMemberApiAsync",
+          "responseType": "IMembersDeleteMemberApiApiResponse",
+          "usage": "var response = await api.MembersDeleteMemberApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "MembersGetMembersApi",
+      "method": "GET",
+      "path": "/api/v1/store/account/members",
+      "tag": "Account - Members (B2B)",
+      "summary": "Lists the current account's members, pending invitations, and pending membership requests.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersGetMembersApi",
+          "usage": "const api = new AccountMembersB2BApi(config); const result = await api.membersGetMembersApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "members_get_members_api",
+          "usage": "api = AccountMembersB2BApi(api_client); result = api.members_get_members_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersGetMembersApi",
+          "usage": "$api = new AccountMembersB2BApi(null, $config); $result = $api->membersGetMembersApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountMembersB2BApi",
+          "interfaceName": "IAccountMembersB2BApi",
+          "methodName": "MembersGetMembersApiAsync",
+          "responseType": "IMembersGetMembersApiApiResponse",
+          "usage": "var response = await api.MembersGetMembersApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "MembersGetSwitchableAccountsApi",
+      "method": "GET",
+      "path": "/api/v1/store/account/members/switchable-accounts",
+      "tag": "Account - Members (B2B)",
+      "summary": "Lists the accounts the current login can switch into.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersGetSwitchableAccountsApi",
+          "usage": "const api = new AccountMembersB2BApi(config); const result = await api.membersGetSwitchableAccountsApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "members_get_switchable_accounts_api",
+          "usage": "api = AccountMembersB2BApi(api_client); result = api.members_get_switchable_accounts_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersGetSwitchableAccountsApi",
+          "usage": "$api = new AccountMembersB2BApi(null, $config); $result = $api->membersGetSwitchableAccountsApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountMembersB2BApi",
+          "interfaceName": "IAccountMembersB2BApi",
+          "methodName": "MembersGetSwitchableAccountsApiAsync",
+          "responseType": "IMembersGetSwitchableAccountsApiApiResponse",
+          "usage": "var response = await api.MembersGetSwitchableAccountsApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "MembersInviteMembersApi",
+      "method": "POST",
+      "path": "/api/v1/store/account/members/invitations",
+      "tag": "Account - Members (B2B)",
+      "summary": "Invites one or more emails to join this corporate account.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersInviteMembersApi",
+          "usage": "const api = new AccountMembersB2BApi(config); const result = await api.membersInviteMembersApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "members_invite_members_api",
+          "usage": "api = AccountMembersB2BApi(api_client); result = api.members_invite_members_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersInviteMembersApi",
+          "usage": "$api = new AccountMembersB2BApi(null, $config); $result = $api->membersInviteMembersApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountMembersB2BApi",
+          "interfaceName": "IAccountMembersB2BApi",
+          "methodName": "MembersInviteMembersApiAsync",
+          "responseType": "IMembersInviteMembersApiApiResponse",
+          "usage": "var response = await api.MembersInviteMembersApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "MembersResendInvitationApi",
+      "method": "POST",
+      "path": "/api/v1/store/account/members/invitations/{invitationId}/resend",
+      "tag": "Account - Members (B2B)",
+      "summary": "Resends a pending invitation's email, belonging to the current account.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersResendInvitationApi",
+          "usage": "const api = new AccountMembersB2BApi(config); const result = await api.membersResendInvitationApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "members_resend_invitation_api",
+          "usage": "api = AccountMembersB2BApi(api_client); result = api.members_resend_invitation_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersResendInvitationApi",
+          "usage": "$api = new AccountMembersB2BApi(null, $config); $result = $api->membersResendInvitationApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountMembersB2BApi",
+          "interfaceName": "IAccountMembersB2BApi",
+          "methodName": "MembersResendInvitationApiAsync",
+          "responseType": "IMembersResendInvitationApiApiResponse",
+          "usage": "var response = await api.MembersResendInvitationApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "MembersSwitchAccountApi",
+      "method": "POST",
+      "path": "/api/v1/store/account/members/switch/{accountId}",
+      "tag": "Account - Members (B2B)",
+      "summary": "Switches the logged-in customer's active account. Unlike StoreApp's cookie/session model (which\nre-reads the active account server-side on every request), a JWT is immutable once issued - so\nthis both switches the server-side session AND re-mints the access token, since that's the only\nplace the client's AccountId is actually asserted.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersSwitchAccountApi",
+          "usage": "const api = new AccountMembersB2BApi(config); const result = await api.membersSwitchAccountApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "members_switch_account_api",
+          "usage": "api = AccountMembersB2BApi(api_client); result = api.members_switch_account_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersSwitchAccountApi",
+          "usage": "$api = new AccountMembersB2BApi(null, $config); $result = $api->membersSwitchAccountApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountMembersB2BApi",
+          "interfaceName": "IAccountMembersB2BApi",
+          "methodName": "MembersSwitchAccountApiAsync",
+          "responseType": "IMembersSwitchAccountApiApiResponse",
+          "usage": "var response = await api.MembersSwitchAccountApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "MembersUpdateMemberApi",
+      "method": "PATCH",
+      "path": "/api/v1/store/account/members/{personId}",
+      "tag": "Account - Members (B2B)",
+      "summary": "Updates a member's role, budget, or approval settings.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersUpdateMemberApi",
+          "usage": "const api = new AccountMembersB2BApi(config); const result = await api.membersUpdateMemberApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "members_update_member_api",
+          "usage": "api = AccountMembersB2BApi(api_client); result = api.members_update_member_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountMembersB2BApi",
+          "methodName": "membersUpdateMemberApi",
+          "usage": "$api = new AccountMembersB2BApi(null, $config); $result = $api->membersUpdateMemberApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountMembersB2BApi",
+          "interfaceName": "IAccountMembersB2BApi",
+          "methodName": "MembersUpdateMemberApiAsync",
+          "responseType": "IMembersUpdateMemberApiApiResponse",
+          "usage": "var response = await api.MembersUpdateMemberApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "NewsletterSubscribeApi",
+      "method": "POST",
+      "path": "/api/v1/store/newsletter/subscribe",
+      "tag": "Newsletter",
+      "summary": "Subscribes an email address to the store's newsletter.",
+      "sdk": {
+        "typescript": {
+          "className": "NewsletterApi",
+          "methodName": "newsletterSubscribeApi",
+          "usage": "const api = new NewsletterApi(config); const result = await api.newsletterSubscribeApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "NewsletterApi",
+          "methodName": "newsletter_subscribe_api",
+          "usage": "api = NewsletterApi(api_client); result = api.newsletter_subscribe_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "NewsletterApi",
+          "methodName": "newsletterSubscribeApi",
+          "usage": "$api = new NewsletterApi(null, $config); $result = $api->newsletterSubscribeApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "NewsletterApi",
+          "interfaceName": "INewsletterApi",
+          "methodName": "NewsletterSubscribeApiAsync",
+          "responseType": "INewsletterSubscribeApiApiResponse",
+          "usage": "var response = await api.NewsletterSubscribeApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "NewsletterUnsubscribeApi",
+      "method": "GET",
+      "path": "/api/v1/store/newsletter/unsubscribe/{email}/{token}",
+      "tag": "Newsletter",
+      "summary": "Unsubscribes an email address using the signed token from an unsubscribe link (e.g. the\n    one included in a newsletter email) - not something a frontend calls directly with arbitrary\n    input, since the token is only ever valid when issued by the store itself.",
+      "sdk": {
+        "typescript": {
+          "className": "NewsletterApi",
+          "methodName": "newsletterUnsubscribeApi",
+          "usage": "const api = new NewsletterApi(config); const result = await api.newsletterUnsubscribeApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "NewsletterApi",
+          "methodName": "newsletter_unsubscribe_api",
+          "usage": "api = NewsletterApi(api_client); result = api.newsletter_unsubscribe_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "NewsletterApi",
+          "methodName": "newsletterUnsubscribeApi",
+          "usage": "$api = new NewsletterApi(null, $config); $result = $api->newsletterUnsubscribeApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "NewsletterApi",
+          "interfaceName": "INewsletterApi",
+          "methodName": "NewsletterUnsubscribeApiAsync",
+          "responseType": "INewsletterUnsubscribeApiApiResponse",
+          "usage": "var response = await api.NewsletterUnsubscribeApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "OrdersCancelOrderApi",
+      "method": "POST",
+      "path": "/api/v1/store/orders/{orderId}/cancel",
+      "tag": "Orders",
+      "summary": "Cancels an order. Blocked (409) if it already has a payment recorded, has expired, or is already\nComplete/Cancelled - ICancelOrderService.Cancel itself does not check any of that (it will happily\nflip a paid order to Cancelled with no refund), so this mirrors the MayCancel rule StoreApp's own\norder view enforces.",
+      "sdk": {
+        "typescript": {
+          "className": "OrdersApi",
+          "methodName": "ordersCancelOrderApi",
+          "usage": "const api = new OrdersApi(config); const result = await api.ordersCancelOrderApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "OrdersApi",
+          "methodName": "orders_cancel_order_api",
+          "usage": "api = OrdersApi(api_client); result = api.orders_cancel_order_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "OrdersApi",
+          "methodName": "ordersCancelOrderApi",
+          "usage": "$api = new OrdersApi(null, $config); $result = $api->ordersCancelOrderApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "OrdersApi",
+          "interfaceName": "IOrdersApi",
+          "methodName": "OrdersCancelOrderApiAsync",
+          "responseType": "IOrdersCancelOrderApiApiResponse",
+          "usage": "var response = await api.OrdersCancelOrderApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "OrdersGetOrderApi",
+      "method": "GET",
+      "path": "/api/v1/store/orders/{orderId}",
+      "tag": "Orders",
+      "summary": "Gets a single order's full detail. 404s (rather than 403s) an order that exists but isn't the customer's, so this can't be used to enumerate order IDs.",
+      "sdk": {
+        "typescript": {
+          "className": "OrdersApi",
+          "methodName": "ordersGetOrderApi",
+          "usage": "const api = new OrdersApi(config); const result = await api.ordersGetOrderApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "OrdersApi",
+          "methodName": "orders_get_order_api",
+          "usage": "api = OrdersApi(api_client); result = api.orders_get_order_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "OrdersApi",
+          "methodName": "ordersGetOrderApi",
+          "usage": "$api = new OrdersApi(null, $config); $result = $api->ordersGetOrderApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "OrdersApi",
+          "interfaceName": "IOrdersApi",
+          "methodName": "OrdersGetOrderApiAsync",
+          "responseType": "IOrdersGetOrderApiApiResponse",
+          "usage": "var response = await api.OrdersGetOrderApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "OrdersGetOrdersApi",
+      "method": "GET",
+      "path": "/api/v1/store/orders",
+      "tag": "Orders",
+      "summary": "Lists the current customer's orders, most recent first by default.",
+      "sdk": {
+        "typescript": {
+          "className": "OrdersApi",
+          "methodName": "ordersGetOrdersApi",
+          "usage": "const api = new OrdersApi(config); const result = await api.ordersGetOrdersApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "OrdersApi",
+          "methodName": "orders_get_orders_api",
+          "usage": "api = OrdersApi(api_client); result = api.orders_get_orders_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "OrdersApi",
+          "methodName": "ordersGetOrdersApi",
+          "usage": "$api = new OrdersApi(null, $config); $result = $api->ordersGetOrdersApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "OrdersApi",
+          "interfaceName": "IOrdersApi",
+          "methodName": "OrdersGetOrdersApiAsync",
+          "responseType": "IOrdersGetOrdersApiApiResponse",
+          "usage": "var response = await api.OrdersGetOrdersApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "OrdersGetOrderStatusApi",
+      "method": "GET",
+      "path": "/api/v1/store/orders/{orderId}/status",
+      "tag": "Orders",
+      "summary": "A lightweight status-only view of an order - for a client that just wants to poll order progress\nwithout pulling the full detail (line items, addresses, etc.) on every check.",
+      "sdk": {
+        "typescript": {
+          "className": "OrdersApi",
+          "methodName": "ordersGetOrderStatusApi",
+          "usage": "const api = new OrdersApi(config); const result = await api.ordersGetOrderStatusApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "OrdersApi",
+          "methodName": "orders_get_order_status_api",
+          "usage": "api = OrdersApi(api_client); result = api.orders_get_order_status_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "OrdersApi",
+          "methodName": "ordersGetOrderStatusApi",
+          "usage": "$api = new OrdersApi(null, $config); $result = $api->ordersGetOrderStatusApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "OrdersApi",
+          "interfaceName": "IOrdersApi",
+          "methodName": "OrdersGetOrderStatusApiAsync",
+          "responseType": "IOrdersGetOrderStatusApiApiResponse",
+          "usage": "var response = await api.OrdersGetOrderStatusApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "OrdersReorderApi",
+      "method": "POST",
+      "path": "/api/v1/store/orders/{orderId}/reorder",
+      "tag": "Orders",
+      "summary": "Adds a past order's items back to the current cart. Omit Items to reorder everything at the\noriginal quantities. Bundle lines are skipped (not reconstructible generically); Batch lines are\nreconstructed by IReOrderService itself.",
+      "sdk": {
+        "typescript": {
+          "className": "OrdersApi",
+          "methodName": "ordersReorderApi",
+          "usage": "const api = new OrdersApi(config); const result = await api.ordersReorderApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "OrdersApi",
+          "methodName": "orders_reorder_api",
+          "usage": "api = OrdersApi(api_client); result = api.orders_reorder_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "OrdersApi",
+          "methodName": "ordersReorderApi",
+          "usage": "$api = new OrdersApi(null, $config); $result = $api->ordersReorderApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "OrdersApi",
+          "interfaceName": "IOrdersApi",
+          "methodName": "OrdersReorderApiAsync",
+          "responseType": "IOrdersReorderApiApiResponse",
+          "usage": "var response = await api.OrdersReorderApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "PaymentGetStatusApi",
+      "method": "GET",
+      "path": "/api/v1/store/payments/{orderRef}/status",
+      "tag": "Payments",
+      "summary": "Polls an order's current payment/fulfillment status - for the frontend's own success page to\nconfirm payment landed, particularly for redirect-based gateways with no synchronous confirmation.\nNot a substitute for the webhook, which is what actually marks the order paid.",
+      "sdk": {
+        "typescript": {
+          "className": "PaymentsApi",
+          "methodName": "paymentGetStatusApi",
+          "usage": "const api = new PaymentsApi(config); const result = await api.paymentGetStatusApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "PaymentsApi",
+          "methodName": "payment_get_status_api",
+          "usage": "api = PaymentsApi(api_client); result = api.payment_get_status_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "PaymentsApi",
+          "methodName": "paymentGetStatusApi",
+          "usage": "$api = new PaymentsApi(null, $config); $result = $api->paymentGetStatusApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "PaymentsApi",
+          "interfaceName": "IPaymentsApi",
+          "methodName": "PaymentGetStatusApiAsync",
+          "responseType": "IPaymentGetStatusApiApiResponse",
+          "usage": "var response = await api.PaymentGetStatusApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "PaymentStripeWebhookApi",
+      "method": "POST",
+      "path": "/api/v1/store/payments/stripe/webhook",
+      "tag": "Payments",
+      "summary": "Stripe webhook - the source of truth for \"paid\". Configure this store's Stripe webhook URL as\n.../api/store/payments/stripe/webhook?key=&lt;this store's Store Access Key&gt; (Stripe can't be\nconfigured to send our normal X-Commerce-Key header, so the key travels in the URL instead - see\nStoreApiKeyMiddleware). Verifies the signature before trusting anything in the payload.",
+      "sdk": {
+        "typescript": {
+          "className": "PaymentsApi",
+          "methodName": "paymentStripeWebhookApi",
+          "usage": "const api = new PaymentsApi(config); const result = await api.paymentStripeWebhookApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "PaymentsApi",
+          "methodName": "payment_stripe_webhook_api",
+          "usage": "api = PaymentsApi(api_client); result = api.payment_stripe_webhook_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "PaymentsApi",
+          "methodName": "paymentStripeWebhookApi",
+          "usage": "$api = new PaymentsApi(null, $config); $result = $api->paymentStripeWebhookApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "PaymentsApi",
+          "interfaceName": "IPaymentsApi",
+          "methodName": "PaymentStripeWebhookApiAsync",
+          "responseType": "IPaymentStripeWebhookApiApiResponse",
+          "usage": "var response = await api.PaymentStripeWebhookApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "ProductGetByIdApi",
+      "method": "GET",
+      "path": "/api/v1/store/products/{id}",
+      "tag": "Catalog - Products",
+      "summary": "Gets a single product's full detail by its id.",
+      "sdk": {
+        "typescript": {
+          "className": "CatalogProductsApi",
+          "methodName": "productGetByIdApi",
+          "usage": "const api = new CatalogProductsApi(config); const result = await api.productGetByIdApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CatalogProductsApi",
+          "methodName": "product_get_by_id_api",
+          "usage": "api = CatalogProductsApi(api_client); result = api.product_get_by_id_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CatalogProductsApi",
+          "methodName": "productGetByIdApi",
+          "usage": "$api = new CatalogProductsApi(null, $config); $result = $api->productGetByIdApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CatalogProductsApi",
+          "interfaceName": "ICatalogProductsApi",
+          "methodName": "ProductGetByIdApiAsync",
+          "responseType": "IProductGetByIdApiApiResponse",
+          "usage": "var response = await api.ProductGetByIdApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "ProductGetBySkuApi",
+      "method": "GET",
+      "path": "/api/v1/store/products/by-sku/{sku}",
+      "tag": "Catalog - Products",
+      "summary": "Gets a single product's full detail by its SKU - same response shape as GetById.",
+      "sdk": {
+        "typescript": {
+          "className": "CatalogProductsApi",
+          "methodName": "productGetBySkuApi",
+          "usage": "const api = new CatalogProductsApi(config); const result = await api.productGetBySkuApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CatalogProductsApi",
+          "methodName": "product_get_by_sku_api",
+          "usage": "api = CatalogProductsApi(api_client); result = api.product_get_by_sku_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CatalogProductsApi",
+          "methodName": "productGetBySkuApi",
+          "usage": "$api = new CatalogProductsApi(null, $config); $result = $api->productGetBySkuApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CatalogProductsApi",
+          "interfaceName": "ICatalogProductsApi",
+          "methodName": "ProductGetBySkuApiAsync",
+          "responseType": "IProductGetBySkuApiApiResponse",
+          "usage": "var response = await api.ProductGetBySkuApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "ProductGetPricingTiersApi",
+      "method": "GET",
+      "path": "/api/v1/store/products/{id}/pricing-tiers",
+      "tag": "Catalog - Products",
+      "summary": "Gets a product's quantity-break pricing table (e.g. \"10-49 units at R45.00 each\"), if it has\n    one - empty Tiers means the product has no bulk/tiered pricing configured. Resolved against the\n    caller's own pricelist (same account/session pricing already used for GetById/GetBySku), so a B2B\n    account with a special pricelist sees its own tier prices, not the store default.",
+      "sdk": {
+        "typescript": {
+          "className": "CatalogProductsApi",
+          "methodName": "productGetPricingTiersApi",
+          "usage": "const api = new CatalogProductsApi(config); const result = await api.productGetPricingTiersApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CatalogProductsApi",
+          "methodName": "product_get_pricing_tiers_api",
+          "usage": "api = CatalogProductsApi(api_client); result = api.product_get_pricing_tiers_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CatalogProductsApi",
+          "methodName": "productGetPricingTiersApi",
+          "usage": "$api = new CatalogProductsApi(null, $config); $result = $api->productGetPricingTiersApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CatalogProductsApi",
+          "interfaceName": "ICatalogProductsApi",
+          "methodName": "ProductGetPricingTiersApiAsync",
+          "responseType": "IProductGetPricingTiersApiApiResponse",
+          "usage": "var response = await api.ProductGetPricingTiersApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "ProductListsCompareApi",
+      "method": "POST",
+      "path": "/api/v1/store/products/compare",
+      "tag": "Catalog - Product Lists",
+      "summary": "Hydrates a client-supplied list of product ids into full comparison-grid cards - for a\n    \"compare products\" page. The frontend owns tracking which ids are being compared (e.g. in local\n    storage); this just resolves ids to display data.",
+      "sdk": {
+        "typescript": {
+          "className": "CatalogProductListsApi",
+          "methodName": "productListsCompareApi",
+          "usage": "const api = new CatalogProductListsApi(config); const result = await api.productListsCompareApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CatalogProductListsApi",
+          "methodName": "product_lists_compare_api",
+          "usage": "api = CatalogProductListsApi(api_client); result = api.product_lists_compare_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CatalogProductListsApi",
+          "methodName": "productListsCompareApi",
+          "usage": "$api = new CatalogProductListsApi(null, $config); $result = $api->productListsCompareApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CatalogProductListsApi",
+          "interfaceName": "ICatalogProductListsApi",
+          "methodName": "ProductListsCompareApiAsync",
+          "responseType": "IProductListsCompareApiApiResponse",
+          "usage": "var response = await api.ProductListsCompareApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "ProductListsRecentlyViewedApi",
+      "method": "POST",
+      "path": "/api/v1/store/products/recently-viewed",
+      "tag": "Catalog - Product Lists",
+      "summary": "Hydrates a client-supplied list of product ids into full display cards - for a \"recently\n    viewed\" rail. The frontend owns tracking which ids the customer has viewed (e.g. in local storage);\n    this just resolves ids to display data.",
+      "sdk": {
+        "typescript": {
+          "className": "CatalogProductListsApi",
+          "methodName": "productListsRecentlyViewedApi",
+          "usage": "const api = new CatalogProductListsApi(config); const result = await api.productListsRecentlyViewedApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CatalogProductListsApi",
+          "methodName": "product_lists_recently_viewed_api",
+          "usage": "api = CatalogProductListsApi(api_client); result = api.product_lists_recently_viewed_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CatalogProductListsApi",
+          "methodName": "productListsRecentlyViewedApi",
+          "usage": "$api = new CatalogProductListsApi(null, $config); $result = $api->productListsRecentlyViewedApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CatalogProductListsApi",
+          "interfaceName": "ICatalogProductListsApi",
+          "methodName": "ProductListsRecentlyViewedApiAsync",
+          "responseType": "IProductListsRecentlyViewedApiApiResponse",
+          "usage": "var response = await api.ProductListsRecentlyViewedApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "ProductListsTrendingApi",
+      "method": "POST",
+      "path": "/api/v1/store/products/trending",
+      "tag": "Catalog - Product Lists",
+      "summary": "Hydrates a client-supplied list of product ids into full display cards - for a \"trending\n    now\" rail. Which ids count as trending is decided by the caller (e.g. a merchant-curated list, or\n    data from another source), not tracked server-side.",
+      "sdk": {
+        "typescript": {
+          "className": "CatalogProductListsApi",
+          "methodName": "productListsTrendingApi",
+          "usage": "const api = new CatalogProductListsApi(config); const result = await api.productListsTrendingApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "CatalogProductListsApi",
+          "methodName": "product_lists_trending_api",
+          "usage": "api = CatalogProductListsApi(api_client); result = api.product_lists_trending_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "CatalogProductListsApi",
+          "methodName": "productListsTrendingApi",
+          "usage": "$api = new CatalogProductListsApi(null, $config); $result = $api->productListsTrendingApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "CatalogProductListsApi",
+          "interfaceName": "ICatalogProductListsApi",
+          "methodName": "ProductListsTrendingApiAsync",
+          "responseType": "IProductListsTrendingApiApiResponse",
+          "usage": "var response = await api.ProductListsTrendingApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "ProfileChangePasswordApi",
+      "method": "POST",
+      "path": "/api/v1/store/profile/change-password",
+      "tag": "Account",
+      "summary": "Changes the current customer's password given their current one. Reuses the exact hashing scheme\nResetPasswordService already applies (salt + single-pass SHA-256, base64) rather than inventing new\ncrypto, and the same password-policy checks (min length/lower/upper/number/special) it enforces.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountApi",
+          "methodName": "profileChangePasswordApi",
+          "usage": "const api = new AccountApi(config); const result = await api.profileChangePasswordApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountApi",
+          "methodName": "profile_change_password_api",
+          "usage": "api = AccountApi(api_client); result = api.profile_change_password_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountApi",
+          "methodName": "profileChangePasswordApi",
+          "usage": "$api = new AccountApi(null, $config); $result = $api->profileChangePasswordApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountApi",
+          "interfaceName": "IAccountApi",
+          "methodName": "ProfileChangePasswordApiAsync",
+          "responseType": "IProfileChangePasswordApiApiResponse",
+          "usage": "var response = await api.ProfileChangePasswordApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "ProfileDeleteProfileApi",
+      "method": "DELETE",
+      "path": "/api/v1/store/profile",
+      "tag": "Account",
+      "summary": "Deletes (obfuscates) the current customer's profile. Blocked with warnings if the account is\ncorporate or still holds wallet funds - see IDeleteUserService.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountApi",
+          "methodName": "profileDeleteProfileApi",
+          "usage": "const api = new AccountApi(config); const result = await api.profileDeleteProfileApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountApi",
+          "methodName": "profile_delete_profile_api",
+          "usage": "api = AccountApi(api_client); result = api.profile_delete_profile_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountApi",
+          "methodName": "profileDeleteProfileApi",
+          "usage": "$api = new AccountApi(null, $config); $result = $api->profileDeleteProfileApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountApi",
+          "interfaceName": "IAccountApi",
+          "methodName": "ProfileDeleteProfileApiAsync",
+          "responseType": "IProfileDeleteProfileApiApiResponse",
+          "usage": "var response = await api.ProfileDeleteProfileApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "ProfileGetProfileApi",
+      "method": "GET",
+      "path": "/api/v1/store/profile",
+      "tag": "Account",
+      "summary": "Returns the current customer's profile.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountApi",
+          "methodName": "profileGetProfileApi",
+          "usage": "const api = new AccountApi(config); const result = await api.profileGetProfileApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountApi",
+          "methodName": "profile_get_profile_api",
+          "usage": "api = AccountApi(api_client); result = api.profile_get_profile_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountApi",
+          "methodName": "profileGetProfileApi",
+          "usage": "$api = new AccountApi(null, $config); $result = $api->profileGetProfileApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountApi",
+          "interfaceName": "IAccountApi",
+          "methodName": "ProfileGetProfileApiAsync",
+          "responseType": "IProfileGetProfileApiApiResponse",
+          "usage": "var response = await api.ProfileGetProfileApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "ProfileUpdateProfileApi",
+      "method": "PATCH",
+      "path": "/api/v1/store/profile",
+      "tag": "Account",
+      "summary": "Updates the current customer's profile. Only fields present in the request are changed.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountApi",
+          "methodName": "profileUpdateProfileApi",
+          "usage": "const api = new AccountApi(config); const result = await api.profileUpdateProfileApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountApi",
+          "methodName": "profile_update_profile_api",
+          "usage": "api = AccountApi(api_client); result = api.profile_update_profile_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountApi",
+          "methodName": "profileUpdateProfileApi",
+          "usage": "$api = new AccountApi(null, $config); $result = $api->profileUpdateProfileApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountApi",
+          "interfaceName": "IAccountApi",
+          "methodName": "ProfileUpdateProfileApiAsync",
+          "responseType": "IProfileUpdateProfileApiApiResponse",
+          "usage": "var response = await api.ProfileUpdateProfileApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "SearchClearSearchHistoryApi",
+      "method": "DELETE",
+      "path": "/api/v1/store/search/history",
+      "tag": "Search",
+      "summary": "Clears the current customer's (or guest session's) search history.",
+      "sdk": {
+        "typescript": {
+          "className": "SearchApi",
+          "methodName": "searchClearSearchHistoryApi",
+          "usage": "const api = new SearchApi(config); const result = await api.searchClearSearchHistoryApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "SearchApi",
+          "methodName": "search_clear_search_history_api",
+          "usage": "api = SearchApi(api_client); result = api.search_clear_search_history_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "SearchApi",
+          "methodName": "searchClearSearchHistoryApi",
+          "usage": "$api = new SearchApi(null, $config); $result = $api->searchClearSearchHistoryApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "SearchApi",
+          "interfaceName": "ISearchApi",
+          "methodName": "SearchClearSearchHistoryApiAsync",
+          "responseType": "ISearchClearSearchHistoryApiApiResponse",
+          "usage": "var response = await api.SearchClearSearchHistoryApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "SearchGetProductsApi",
+      "method": "GET",
+      "path": "/api/v1/store/search/products",
+      "tag": "Search",
+      "summary": "Faceted/filtered product listing - the category/search results page. Falls back to a plain database\nkeyword query (no facets - those need Solr's index) when the store has no Solr instance configured,\nor the configured one is unreachable, instead of surfacing an opaque 500. Callers can detect this via\nthe SearchDegraded flag on the response.",
+      "sdk": {
+        "typescript": {
+          "className": "SearchApi",
+          "methodName": "searchGetProductsApi",
+          "usage": "const api = new SearchApi(config); const result = await api.searchGetProductsApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "SearchApi",
+          "methodName": "search_get_products_api",
+          "usage": "api = SearchApi(api_client); result = api.search_get_products_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "SearchApi",
+          "methodName": "searchGetProductsApi",
+          "usage": "$api = new SearchApi(null, $config); $result = $api->searchGetProductsApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "SearchApi",
+          "interfaceName": "ISearchApi",
+          "methodName": "SearchGetProductsApiAsync",
+          "responseType": "ISearchGetProductsApiApiResponse",
+          "usage": "var response = await api.SearchGetProductsApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "SearchGetSearchHistoryApi",
+      "method": "GET",
+      "path": "/api/v1/store/search/history",
+      "tag": "Search",
+      "summary": "Recent search terms for the current customer (or guest session), most recent first.",
+      "sdk": {
+        "typescript": {
+          "className": "SearchApi",
+          "methodName": "searchGetSearchHistoryApi",
+          "usage": "const api = new SearchApi(config); const result = await api.searchGetSearchHistoryApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "SearchApi",
+          "methodName": "search_get_search_history_api",
+          "usage": "api = SearchApi(api_client); result = api.search_get_search_history_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "SearchApi",
+          "methodName": "searchGetSearchHistoryApi",
+          "usage": "$api = new SearchApi(null, $config); $result = $api->searchGetSearchHistoryApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "SearchApi",
+          "interfaceName": "ISearchApi",
+          "methodName": "SearchGetSearchHistoryApiAsync",
+          "responseType": "ISearchGetSearchHistoryApiApiResponse",
+          "usage": "var response = await api.SearchGetSearchHistoryApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "SearchGetSuggestionsApi",
+      "method": "GET",
+      "path": "/api/v1/store/search/suggestions",
+      "tag": "Search",
+      "summary": "Lightweight search-box suggestions (term + weight), no product/category hydration.",
+      "sdk": {
+        "typescript": {
+          "className": "SearchApi",
+          "methodName": "searchGetSuggestionsApi",
+          "usage": "const api = new SearchApi(config); const result = await api.searchGetSuggestionsApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "SearchApi",
+          "methodName": "search_get_suggestions_api",
+          "usage": "api = SearchApi(api_client); result = api.search_get_suggestions_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "SearchApi",
+          "methodName": "searchGetSuggestionsApi",
+          "usage": "$api = new SearchApi(null, $config); $result = $api->searchGetSuggestionsApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "SearchApi",
+          "interfaceName": "ISearchApi",
+          "methodName": "SearchGetSuggestionsApiAsync",
+          "responseType": "ISearchGetSuggestionsApiApiResponse",
+          "usage": "var response = await api.SearchGetSuggestionsApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "SearchPredictiveSearchApi",
+      "method": "GET",
+      "path": "/api/v1/store/search/predictive-search",
+      "tag": "Search",
+      "summary": "Predictive search - as-you-type results combining products, categories, and manufacturers.",
+      "sdk": {
+        "typescript": {
+          "className": "SearchApi",
+          "methodName": "searchPredictiveSearchApi",
+          "usage": "const api = new SearchApi(config); const result = await api.searchPredictiveSearchApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "SearchApi",
+          "methodName": "search_predictive_search_api",
+          "usage": "api = SearchApi(api_client); result = api.search_predictive_search_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "SearchApi",
+          "methodName": "searchPredictiveSearchApi",
+          "usage": "$api = new SearchApi(null, $config); $result = $api->searchPredictiveSearchApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "SearchApi",
+          "interfaceName": "ISearchApi",
+          "methodName": "SearchPredictiveSearchApiAsync",
+          "responseType": "ISearchPredictiveSearchApiApiResponse",
+          "usage": "var response = await api.SearchPredictiveSearchApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "WalletGetBalanceApi",
+      "method": "GET",
+      "path": "/api/v1/store/wallet",
+      "tag": "Wallet",
+      "summary": "Gets the current customer's wallet balance - either the store's core wallet, or a\n    third-party wallet extension's balance when one is active for this store (see\n    IWalletProviderService.HasThirdPartyWallet) - and redeemable via Checkout's wallet actions.",
+      "sdk": {
+        "typescript": {
+          "className": "WalletApi",
+          "methodName": "walletGetBalanceApi",
+          "usage": "const api = new WalletApi(config); const result = await api.walletGetBalanceApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "WalletApi",
+          "methodName": "wallet_get_balance_api",
+          "usage": "api = WalletApi(api_client); result = api.wallet_get_balance_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "WalletApi",
+          "methodName": "walletGetBalanceApi",
+          "usage": "$api = new WalletApi(null, $config); $result = $api->walletGetBalanceApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "WalletApi",
+          "interfaceName": "IWalletApi",
+          "methodName": "WalletGetBalanceApiAsync",
+          "responseType": "IWalletGetBalanceApiApiResponse",
+          "usage": "var response = await api.WalletGetBalanceApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "WishlistAddItemApi",
+      "method": "POST",
+      "path": "/api/v1/store/wishlists/{id}/items",
+      "tag": "Wishlists",
+      "summary": "Adds a product to a wishlist.",
+      "sdk": {
+        "typescript": {
+          "className": "WishlistsApi",
+          "methodName": "wishlistAddItemApi",
+          "usage": "const api = new WishlistsApi(config); const result = await api.wishlistAddItemApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "WishlistsApi",
+          "methodName": "wishlist_add_item_api",
+          "usage": "api = WishlistsApi(api_client); result = api.wishlist_add_item_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "WishlistsApi",
+          "methodName": "wishlistAddItemApi",
+          "usage": "$api = new WishlistsApi(null, $config); $result = $api->wishlistAddItemApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "WishlistsApi",
+          "interfaceName": "IWishlistsApi",
+          "methodName": "WishlistAddItemApiAsync",
+          "responseType": "IWishlistAddItemApiApiResponse",
+          "usage": "var response = await api.WishlistAddItemApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "WishlistCreateWishlistApi",
+      "method": "POST",
+      "path": "/api/v1/store/wishlists",
+      "tag": "Wishlists",
+      "summary": "Creates a new named wishlist.",
+      "sdk": {
+        "typescript": {
+          "className": "WishlistsApi",
+          "methodName": "wishlistCreateWishlistApi",
+          "usage": "const api = new WishlistsApi(config); const result = await api.wishlistCreateWishlistApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "WishlistsApi",
+          "methodName": "wishlist_create_wishlist_api",
+          "usage": "api = WishlistsApi(api_client); result = api.wishlist_create_wishlist_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "WishlistsApi",
+          "methodName": "wishlistCreateWishlistApi",
+          "usage": "$api = new WishlistsApi(null, $config); $result = $api->wishlistCreateWishlistApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "WishlistsApi",
+          "interfaceName": "IWishlistsApi",
+          "methodName": "WishlistCreateWishlistApiAsync",
+          "responseType": "IWishlistCreateWishlistApiApiResponse",
+          "usage": "var response = await api.WishlistCreateWishlistApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "WishlistDeleteWishlistApi",
+      "method": "DELETE",
+      "path": "/api/v1/store/wishlists/{id}",
+      "tag": "Wishlists",
+      "summary": "Deletes a wishlist entirely.",
+      "sdk": {
+        "typescript": {
+          "className": "WishlistsApi",
+          "methodName": "wishlistDeleteWishlistApi",
+          "usage": "const api = new WishlistsApi(config); const result = await api.wishlistDeleteWishlistApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "WishlistsApi",
+          "methodName": "wishlist_delete_wishlist_api",
+          "usage": "api = WishlistsApi(api_client); result = api.wishlist_delete_wishlist_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "WishlistsApi",
+          "methodName": "wishlistDeleteWishlistApi",
+          "usage": "$api = new WishlistsApi(null, $config); $result = $api->wishlistDeleteWishlistApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "WishlistsApi",
+          "interfaceName": "IWishlistsApi",
+          "methodName": "WishlistDeleteWishlistApiAsync",
+          "responseType": "IWishlistDeleteWishlistApiApiResponse",
+          "usage": "var response = await api.WishlistDeleteWishlistApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "WishlistGetWishlistApi",
+      "method": "GET",
+      "path": "/api/v1/store/wishlists/{documentRef}",
+      "tag": "Wishlists",
+      "summary": "Gets a single wishlist's full detail by its reference - this is the \"share\" URL: anonymous, keyed only by an unguessable reference, matching StoreApp's own share mechanism (no separate token).",
+      "sdk": {
+        "typescript": {
+          "className": "WishlistsApi",
+          "methodName": "wishlistGetWishlistApi",
+          "usage": "const api = new WishlistsApi(config); const result = await api.wishlistGetWishlistApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "WishlistsApi",
+          "methodName": "wishlist_get_wishlist_api",
+          "usage": "api = WishlistsApi(api_client); result = api.wishlist_get_wishlist_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "WishlistsApi",
+          "methodName": "wishlistGetWishlistApi",
+          "usage": "$api = new WishlistsApi(null, $config); $result = $api->wishlistGetWishlistApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "WishlistsApi",
+          "interfaceName": "IWishlistsApi",
+          "methodName": "WishlistGetWishlistApiAsync",
+          "responseType": "IWishlistGetWishlistApiApiResponse",
+          "usage": "var response = await api.WishlistGetWishlistApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "WishlistGetWishlistsApi",
+      "method": "GET",
+      "path": "/api/v1/store/wishlists",
+      "tag": "Wishlists",
+      "summary": "Lists the current customer's wishlists.",
+      "sdk": {
+        "typescript": {
+          "className": "WishlistsApi",
+          "methodName": "wishlistGetWishlistsApi",
+          "usage": "const api = new WishlistsApi(config); const result = await api.wishlistGetWishlistsApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "WishlistsApi",
+          "methodName": "wishlist_get_wishlists_api",
+          "usage": "api = WishlistsApi(api_client); result = api.wishlist_get_wishlists_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "WishlistsApi",
+          "methodName": "wishlistGetWishlistsApi",
+          "usage": "$api = new WishlistsApi(null, $config); $result = $api->wishlistGetWishlistsApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "WishlistsApi",
+          "interfaceName": "IWishlistsApi",
+          "methodName": "WishlistGetWishlistsApiAsync",
+          "responseType": "IWishlistGetWishlistsApiApiResponse",
+          "usage": "var response = await api.WishlistGetWishlistsApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "WishlistRemoveItemApi",
+      "method": "DELETE",
+      "path": "/api/v1/store/wishlists/{id}/items/{lineId}",
+      "tag": "Wishlists",
+      "summary": "Removes an item from a wishlist.",
+      "sdk": {
+        "typescript": {
+          "className": "WishlistsApi",
+          "methodName": "wishlistRemoveItemApi",
+          "usage": "const api = new WishlistsApi(config); const result = await api.wishlistRemoveItemApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "WishlistsApi",
+          "methodName": "wishlist_remove_item_api",
+          "usage": "api = WishlistsApi(api_client); result = api.wishlist_remove_item_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "WishlistsApi",
+          "methodName": "wishlistRemoveItemApi",
+          "usage": "$api = new WishlistsApi(null, $config); $result = $api->wishlistRemoveItemApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "WishlistsApi",
+          "interfaceName": "IWishlistsApi",
+          "methodName": "WishlistRemoveItemApiAsync",
+          "responseType": "IWishlistRemoveItemApiApiResponse",
+          "usage": "var response = await api.WishlistRemoveItemApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "WishlistUpdateItemQtyApi",
+      "method": "PATCH",
+      "path": "/api/v1/store/wishlists/{id}/items/{lineId}",
+      "tag": "Wishlists",
+      "summary": "Updates an item's quantity on a wishlist.",
+      "sdk": {
+        "typescript": {
+          "className": "WishlistsApi",
+          "methodName": "wishlistUpdateItemQtyApi",
+          "usage": "const api = new WishlistsApi(config); const result = await api.wishlistUpdateItemQtyApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "WishlistsApi",
+          "methodName": "wishlist_update_item_qty_api",
+          "usage": "api = WishlistsApi(api_client); result = api.wishlist_update_item_qty_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "WishlistsApi",
+          "methodName": "wishlistUpdateItemQtyApi",
+          "usage": "$api = new WishlistsApi(null, $config); $result = $api->wishlistUpdateItemQtyApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "WishlistsApi",
+          "interfaceName": "IWishlistsApi",
+          "methodName": "WishlistUpdateItemQtyApiAsync",
+          "responseType": "IWishlistUpdateItemQtyApiApiResponse",
+          "usage": "var response = await api.WishlistUpdateItemQtyApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "WishlistUpdateWishlistApi",
+      "method": "PATCH",
+      "path": "/api/v1/store/wishlists/{id}",
+      "tag": "Wishlists",
+      "summary": "Renames a wishlist or updates its occasion. Only fields present in the request are changed.",
+      "sdk": {
+        "typescript": {
+          "className": "WishlistsApi",
+          "methodName": "wishlistUpdateWishlistApi",
+          "usage": "const api = new WishlistsApi(config); const result = await api.wishlistUpdateWishlistApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "WishlistsApi",
+          "methodName": "wishlist_update_wishlist_api",
+          "usage": "api = WishlistsApi(api_client); result = api.wishlist_update_wishlist_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "WishlistsApi",
+          "methodName": "wishlistUpdateWishlistApi",
+          "usage": "$api = new WishlistsApi(null, $config); $result = $api->wishlistUpdateWishlistApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "WishlistsApi",
+          "interfaceName": "IWishlistsApi",
+          "methodName": "WishlistUpdateWishlistApiAsync",
+          "responseType": "IWishlistUpdateWishlistApiApiResponse",
+          "usage": "var response = await api.WishlistUpdateWishlistApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    }
+  ]
+}

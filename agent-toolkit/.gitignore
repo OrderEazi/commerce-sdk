@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.tgz
+
+# The repo root .gitignore has a blanket "bin" rule (aimed at .NET build output) that also catches
+# this folder's npm bin/ shim (a totally different, intentional convention) - un-ignore it here.
+!bin/
+!bin/oec.js

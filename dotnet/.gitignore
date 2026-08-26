@@ -1,0 +1,5 @@
+generated/
+openapi-spec.json
+bin/
+obj/
+*.nupkg

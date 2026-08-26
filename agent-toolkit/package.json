@@ -1,0 +1,61 @@
+{
+  "name": "@ordereazi/commerce-agent-toolkit",
+  "version": "1.0.2",
+  "description": "MCP server + CLI that gives an AI coding agent direct, structured access to the OrderEazi Commerce Store API - so it can scaffold and build a headless storefront instead of guessing at endpoints and SDK method names.",
+  "main": "dist/mcp/server.js",
+  "types": "dist/mcp/server.d.ts",
+  "bin": {
+    "oec": "./bin/oec.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepack": "node ../scripts/copy-license.js",
+    "build": "tsc && node scripts/copy-assets.js",
+    "spec:refresh": "bash scripts/refresh-openapi-snapshot.sh",
+    "manifest:build": "ts-node scripts/build-manifest.ts",
+    "template:sync": "node scripts/sync-template.js",
+    "test": "ts-node tests/mcp-tools.test.ts && ts-node tests/cli.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "ordereazi-commerce",
+    "commerce",
+    "ecommerce",
+    "mcp",
+    "model-context-protocol",
+    "ai-agent",
+    "cli"
+  ],
+  "author": "OrderEazi",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "commander": "^15.0.0",
+    "jsonc-parser": "^3.3.1",
+    "prompts": "^2.4.2",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/prompts": "^2.4.9",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.4.5"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/OrderEazi/commerce-sdk/tree/main/agent-toolkit#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OrderEazi/commerce-sdk.git",
+    "directory": "agent-toolkit"
+  },
+  "bugs": {
+    "url": "https://github.com/OrderEazi/commerce-sdk/issues"
+  }
+}

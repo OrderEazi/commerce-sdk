@@ -1,0 +1,55 @@
+{
+  "name": "@ordereazi/commerce-sdk",
+  "version": "1.0.0",
+  "description": "TypeScript SDK for the OrderEazi Commerce Headless API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepack": "node ../scripts/copy-license.js",
+    "build": "tsc",
+    "generate": "node scripts/generate-sdk.js",
+    "generate:openapi": "npx @openapitools/openapi-generator-cli generate -i http://localhost:5135/openapi/store.json -g typescript-axios -o src/generated/client --additional-properties=supportsES6=true,withInterfaces=true,typescriptThreePlus=true,npmName=@ordereazi/commerce-sdk,npmVersion=1.0.0",
+    "generate:nswag": "npx nswag swagger2tsclient /input:http://localhost:5135/openapi/store.json /output:src/generated/client.ts /namespace:StorefrontHeadlessApi /className:StorefrontHeadlessApiClient /template:Fetch /generateClientClasses:true /generateClientInterfaces:true",
+    "build:package": "node scripts/build-and-package-sdk.js",
+    "build:package:bash": "bash scripts/build-and-package-sdk.sh",
+    "test:retry": "ts-node tests/retry.test.ts",
+    "test:smoke": "ts-node tests/smoke.test.ts",
+    "test": "npm run test:retry && npm run test:smoke",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "ordereazi-commerce",
+    "commerce",
+    "ecommerce",
+    "api",
+    "sdk",
+    "typescript"
+  ],
+  "author": "OrderEazi",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.4.5"
+  },
+  "dependencies": {
+    "axios": "1.7.9"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/OrderEazi/commerce-sdk/tree/main/typescript#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OrderEazi/commerce-sdk.git",
+    "directory": "typescript"
+  },
+  "bugs": {
+    "url": "https://github.com/OrderEazi/commerce-sdk/issues"
+  }
+}

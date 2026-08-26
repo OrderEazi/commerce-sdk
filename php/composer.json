@@ -1,0 +1,47 @@
+{
+    "name": "ordereazi/commerce-sdk-extras",
+    "description": "Hand-written retry/backoff middleware and SDK-level tests for the OrderEazi Commerce PHP API client. See RETRY_POLICY.md.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "guzzlehttp/guzzle": "^7.3",
+        "ordereazi/commerce-sdk": "*@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "OrderEazi\\Commerce\\Api\\Sdk\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OrderEazi\\Commerce\\Api\\Sdk\\Tests\\": "tests/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./generated",
+            "options": {
+                "symlink": false
+            }
+        }
+    ],
+    "config": {
+        "preferred-install": "dist"
+    },
+    "homepage": "https://github.com/OrderEazi/commerce-sdk",
+    "authors": [
+        {
+            "name": "OrderEazi",
+            "homepage": "https://github.com/OrderEazi/commerce-sdk"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/OrderEazi/commerce-sdk/issues",
+        "source": "https://github.com/OrderEazi/commerce-sdk"
+    }
+}
