@@ -59,10 +59,11 @@ idempotency key, and `Retry-After` is honoured on 429. One policy covers all fou
 
 ## Releasing
 
-Tags drive releases. `v1.2.0` publishes the four SDKs; `toolkit-v1.1.0` publishes the agent toolkit,
-which versions independently because it changes when its tools change rather than when the API does.
+Tags drive releases. `v1.2.0` publishes all five packages - the four SDKs and the agent toolkit -
+on one version. Every registry authenticates by OIDC, so no publishing token is stored here.
 
-Every registry authenticates by OIDC - there are no publishing tokens stored in this repository.
+See [PUBLISHING.md](PUBLISHING.md) for the full picture: which API the SDKs are generated from, the
+trusted publishing policies, and what to check before a release.
 
 ## Licence
 

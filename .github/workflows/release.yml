@@ -4,17 +4,16 @@
 # registry. Nothing private is involved: /openapi/*.json is served without authentication, which is
 # the whole reason this can run here rather than inside the Storefront-8 pipeline.
 #
-# Every registry authenticates by OIDC, with one temporary exception: npm can only attach a trusted
-# publisher to a package that already exists, so the first release of @ordereazi/commerce-sdk needs
-# NPM_TOKEN. Delete that secret once the package is on npm and the publish step goes keyless by
-# itself - see the note on it below.
+# Every registry authenticates by OIDC. No publishing credential is stored - the only secret involved
+# is SDK_PHP_PUSH_TOKEN, which is not one: it pushes the generated PHP client into its own repository,
+# which GITHUB_TOKEN cannot reach because it is scoped to this repo.
 #
-# The other secret, SDK_PHP_PUSH_TOKEN, is not a registry credential: it pushes the generated PHP
-# client into its own repository, which GITHUB_TOKEN cannot reach because it is scoped to this repo.
+# The agent toolkit releases here too, on the same version. See publish-toolkit for why.
 #
-# npm, PyPI and NuGet policies all bind to this FILENAME. Renaming this file breaks all three, and
-# the failure reads as an ordinary auth error.
-name: Release SDKs
+# FOUR trusted publishing policies bind to this FILENAME - npm twice (the SDK and the toolkit are
+# separate packages, and npm allows one publisher each), plus PyPI and NuGet. Renaming this file
+# breaks all four, and the failure reads as an ordinary auth error.
+name: Release SDKs and toolkit
 
 on:
   push:
@@ -155,15 +154,12 @@ jobs:
       - name: Set the version from the tag
         run: npm version "${{ needs.version.outputs.value }}" --no-git-tag-version --allow-same-version
 
-      # npm can only configure a trusted publisher on a package that already EXISTS, and
-      # @ordereazi/commerce-sdk does not yet - so the first release cannot be keyless.
+      # Publishes by OIDC. The NPM_TOKEN branch is a deliberate escape hatch, not leftover bootstrap:
+      # npm can only attach a trusted publisher to a package that already exists, so the very first
+      # release of a new package cannot be keyless - and if a policy is ever broken or rotated away,
+      # adding the secret back restores publishing without touching this file. It is unset today.
       #
-      # NPM_TOKEN is therefore used when present and ignored when not. Publish once with the token,
-      # configure the trusted publisher on npm, then delete the secret: this step goes keyless on its
-      # own with no edit. PyPI avoids the problem with pending publishers and NuGet with owner-scoped
-      # policies; npm has neither.
-      #
-      # --provenance works either way, and needs the id-token permission this job already requests.
+      # --provenance works on either path, and needs the id-token permission this job already requests.
       - name: Publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -313,3 +309,69 @@ jobs:
           git -C "$mirror" push --quiet origin HEAD --tags
 
           echo "Pushed v$VERSION to commerce-sdk-php"
+
+  # The toolkit ships alongside the SDKs rather than on its own tag. It was separate at first, on the
+  # reasoning that it changes when its tools change rather than when the API does - but its payload IS
+  # a snapshot of the API, and every MCP tool answers from that snapshot. Left to its own cadence it
+  # falls behind and starts describing endpoints that have moved, which is worse than describing none:
+  # an agent given stale documentation is confidently wrong. Releasing it in step means it cannot.
+  #
+  # npm allows one trusted publisher per PACKAGE, not per workflow, so this package needs its own
+  # policy on npmjs.com - pointing at THIS file, same as the SDK's.
+  publish-toolkit:
+    needs: version
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    defaults:
+      run:
+        working-directory: agent-toolkit
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Confirm npm is new enough for trusted publishing
+        run: |
+          required=11.5.1
+          actual=$(npm --version)
+          lowest=$({ echo "$required"; echo "$actual"; } | sort -V | head -1)
+          if [ "$lowest" != "$required" ]; then
+            echo "npm $required or newer is required for trusted publishing, got $actual"
+            exit 1
+          fi
+          echo "npm $actual"
+
+      - run: npm ci
+
+      # Refreshed from the live API rather than published as committed - the whole reason this job now
+      # rides with the SDKs.
+      - name: Refresh the bundled OpenAPI snapshots
+        env:
+          API_URL: ${{ env.OPENAPI_BASE_URL }}
+        run: bash scripts/refresh-openapi-snapshot.sh
+
+      - run: npm run build
+      - run: npm test
+
+      - name: Confirm the bundled snapshots survived the build
+        # Guards both halves: that the refresh produced something, and that the build copied it into
+        # dist where the compiled code's relative lookups expect it.
+        run: |
+          for doc in store admin; do
+            f="dist/mcp/data/openapi/${doc}.json"
+            if [ ! -s "$f" ]; then echo "Missing or empty bundled spec: $f"; exit 1; fi
+            paths=$(node -e "console.log(Object.keys(require('./$f').paths || {}).length)")
+            echo "$doc: $paths paths"
+            if [ "$paths" -lt 1 ]; then echo "$doc snapshot has no paths"; exit 1; fi
+          done
+
+      - name: Set the version from the tag
+        run: npm version "${{ needs.version.outputs.value }}" --no-git-tag-version --allow-same-version
+
+      - run: npm publish --access public --provenance
