@@ -108,6 +108,13 @@ test('python pyproject: [project] wins when [tool.poetry] is also present', dir 
 	assert.ok(!toml.includes('GIT_USER_ID'), 'the placeholder repository url must be replaced');
 	assert.ok(toml.includes(`Homepage = "${REPO_URL}"`), 'urls belong in [project.urls]');
 	assert.ok(toml.includes('requires-poetry'), '[tool.poetry] itself must survive - it carries dev deps');
+
+	// The distribution name PyPI publishes under is not the Python import name. The generator writes
+	// packageName (the module) into [project] name, and PyPI then refuses the upload with "Non-user
+	// identities cannot create new projects" because the trusted publisher is registered against a
+	// different project name.
+	assert.ok(project.includes('name = "ordereazi-commerce-sdk"'), 'the PyPI project name must match the trusted publisher');
+	assert.ok(!project.includes('ordereazi_commerce_api'), 'the module name must not be the distribution name');
 });
 
 test('python pyproject: rerunning on an already-patched file cleans up rather than compounding', dir => {

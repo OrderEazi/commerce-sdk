@@ -20,6 +20,13 @@ const AUTHOR = 'OrderEazi';
 const COMPANY = 'Warp Development';
 const REPO_URL = 'https://github.com/OrderEazi/commerce-sdk';
 
+// The name PyPI publishes under. It is deliberately not the Python import name: the generator is told
+// packageName=ordereazi_commerce_api, which is the module you import, and newer versions of the python
+// generator write that into [project] name as well - so the distribution would be published as
+// "ordereazi_commerce_api". PyPI then refuses with "Non-user identities cannot create new projects",
+// because a trusted publisher is registered against a specific project name and that is not it.
+const PYPI_PROJECT_NAME = 'ordereazi-commerce-sdk';
+
 function fail(message) {
 	console.error(`apply-package-metadata: ${message}`);
 	process.exit(1);
@@ -59,6 +66,7 @@ function applyPython(dir) {
 		const table = findTable(toml, 'project') !== -1 ? 'project' : 'tool.poetry';
 
 		toml = setTomlKey(toml, 'license', `"${LICENSE}"`, table);
+		toml = setTomlKey(toml, 'name', `"${PYPI_PROJECT_NAME}"`, table);
 
 		if (table === 'project') {
 			// Defensive, and what makes this idempotent: an earlier version of this script wrote these
