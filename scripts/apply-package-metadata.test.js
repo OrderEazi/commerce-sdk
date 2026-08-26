@@ -74,7 +74,64 @@ test('python pyproject (PEP 621): licence set and urls go in [project.urls]', di
 	assert.ok(!/^homepage = /m.test(toml), 'a bare homepage key in [project] is not valid PEP 621');
 });
 
-test('python pyproject (poetry): an existing licence is replaced, not duplicated', dir => {
+test('python pyproject: [project] wins when [tool.poetry] is also present', dir => {
+	// This is what openapi-generator actually emits, and the shape that broke the first release: PEP 621
+	// metadata in [project], with [tool.poetry] present only to declare dev dependency groups. Treating
+	// the file as poetry because that table exists put flat homepage/repository keys into [project], and
+	// setuptools rejects the whole file: "`project` must not contain {'homepage','repository'}".
+	write(dir, 'pyproject.toml', [
+		'[project]',
+		'name = "ordereazi_commerce_api"',
+		'version = "1.0.0"',
+		'authors = [',
+		'  {name = "OpenAPI Generator Community",email = "team@openapitools.org"},',
+		']',
+		'',
+		'[project.urls]',
+		'Repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"',
+		'',
+		'[tool.poetry]',
+		'requires-poetry = ">=2.0"',
+		''
+	].join('\n'));
+
+	applyPython(dir);
+
+	const toml = read(dir, 'pyproject.toml');
+	const project = toml.slice(toml.indexOf('[project]'), toml.indexOf('[project.urls]'));
+
+	assert.ok(!/^homepage = /m.test(project), 'a flat homepage key in [project] is what setuptools rejects');
+	assert.ok(!/^repository = /m.test(project), 'same for repository');
+	assert.ok(project.includes('license = "MIT"'), 'licence goes in [project], not [tool.poetry]');
+	assert.ok(project.includes('authors = [{name = "OrderEazi"}]'), 'the generator credits itself by default');
+	assert.ok(!toml.includes('openapitools.org'), 'the generator author must be gone, not merely added to');
+	assert.ok(!toml.includes('GIT_USER_ID'), 'the placeholder repository url must be replaced');
+	assert.ok(toml.includes(`Homepage = "${REPO_URL}"`), 'urls belong in [project.urls]');
+	assert.ok(toml.includes('requires-poetry'), '[tool.poetry] itself must survive - it carries dev deps');
+});
+
+test('python pyproject: rerunning on an already-patched file cleans up rather than compounding', dir => {
+	// Idempotence matters because the previous release left these invalid keys behind.
+	write(dir, 'pyproject.toml', [
+		'[project]',
+		'repository = "https://github.com/OrderEazi/commerce-sdk"',
+		'homepage = "https://github.com/OrderEazi/commerce-sdk"',
+		'license = "MIT"',
+		'name = "ordereazi_commerce_api"',
+		''
+	].join('\n'));
+
+	applyPython(dir);
+
+	const toml = read(dir, 'pyproject.toml');
+	const project = toml.slice(toml.indexOf('[project]'), toml.indexOf('[project.urls]'));
+
+	assert.ok(!/^homepage = /m.test(project), 'the invalid key must be removed, not just not re-added');
+	assert.ok(!/^repository = /m.test(project));
+	assert.strictEqual(occurrences(project, 'license = '), 1, 'licence must not be duplicated on a rerun');
+});
+
+test('python pyproject (poetry only): an existing licence is replaced, not duplicated', dir => {
 	write(dir, 'pyproject.toml', '[tool.poetry]\nname = "ordereazi-commerce-sdk"\nversion = "1.0.0"\nlicense = "NoLicense"\n');
 
 	applyPython(dir);

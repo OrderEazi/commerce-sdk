@@ -94,6 +94,13 @@ jobs:
             echo "::endgroup::"
           done
 
+          # TypeScript is the odd one out and was missed first time round: it is a hand-written package
+          # whose src/index.ts re-exports ./generated/client, so tsc fails outright until that exists.
+          # Its generator also lives under scripts/ rather than at the package root like the other three.
+          echo "::group::typescript"
+          (cd typescript && bash scripts/generate-client.sh)
+          echo "::endgroup::"
+
       - uses: actions/upload-artifact@v4
         with:
           name: generated
@@ -101,6 +108,7 @@ jobs:
             python/generated
             php/generated
             dotnet/generated
+            typescript/src/generated
           retention-days: 1
 
   publish-npm:
@@ -114,6 +122,12 @@ jobs:
         working-directory: typescript
     steps:
       - uses: actions/checkout@v4
+
+      # Restores typescript/src/generated, which the checkout does not carry - it is build output, not
+      # committed. Lands at the repo root because a `uses:` step ignores working-directory.
+      - uses: actions/download-artifact@v4
+        with:
+          name: generated
 
       - uses: actions/setup-node@v4
         with:

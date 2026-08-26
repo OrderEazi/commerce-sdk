@@ -52,15 +52,24 @@ function applyPython(dir) {
 	if (fs.existsSync(pyproject)) {
 		let toml = fs.readFileSync(pyproject, 'utf8');
 
-		toml = setTomlKey(toml, 'license', `"${LICENSE}"`);
+		// A generated pyproject can carry BOTH tables - [project] for the PEP 621 metadata and
+		// [tool.poetry] only for dev dependency groups - so the presence of [tool.poetry] does not make
+		// it a poetry project. [project] wins. Writing poetry's flat url keys into it produces a file
+		// setuptools rejects outright: "`project` must not contain {'homepage','repository'} properties".
+		const table = findTable(toml, 'project') !== -1 ? 'project' : 'tool.poetry';
 
-		// The two pyproject shapes spell URLs differently, and writing poetry's flat keys into a PEP 621
-		// [project] table produces a file the build backend rejects.
-		if (findTable(toml, 'tool.poetry') !== -1) {
-			toml = setTomlKey(toml, 'homepage', `"${REPO_URL}"`);
-			toml = setTomlKey(toml, 'repository', `"${REPO_URL}"`);
-		} else {
+		toml = setTomlKey(toml, 'license', `"${LICENSE}"`, table);
+
+		if (table === 'project') {
+			// Defensive, and what makes this idempotent: an earlier version of this script wrote these
+			// two as flat [project] keys, which setuptools refuses outright. Anything already carrying
+			// them has to be cleaned rather than merely not made worse.
+			toml = removeProjectKeys(toml, ['homepage', 'repository']);
 			toml = setProjectUrls(toml);
+			toml = setProjectAuthors(toml);
+		} else {
+			toml = setTomlKey(toml, 'homepage', `"${REPO_URL}"`, table);
+			toml = setTomlKey(toml, 'repository', `"${REPO_URL}"`, table);
 		}
 
 		fs.writeFileSync(pyproject, toml);
@@ -87,6 +96,15 @@ function findTable(toml, name) {
 	return toml.split('\n').findIndex(line => line.trim() === `[${name}]`);
 }
 
+// First line inside a table, and the line its content ends at (the next table header, or EOF).
+function tableRange(lines, tableName) {
+	const header = lines.findIndex(line => line.trim() === `[${tableName}]`);
+	if (header === -1) fail(`pyproject.toml has no [${tableName}] table`);
+
+	const next = lines.findIndex((line, i) => i > header && line.trim().startsWith('['));
+	return [header + 1, next === -1 ? lines.length : next];
+}
+
 function isKeyLine(line, key) {
 	const trimmed = line.trim();
 	if (!trimmed.startsWith(key)) return false;
@@ -94,26 +112,40 @@ function isKeyLine(line, key) {
 	return trimmed.slice(key.length).trimStart().startsWith('=');
 }
 
-// Replaces key in place if present, otherwise adds it directly under the first table header. In place
-// matters: a generated pyproject can already declare license = "NoLicense", and a duplicate key means
-// the parser takes one of the two and it will not be ours.
-function setTomlKey(toml, key, value) {
+// Both the search and the insert are scoped to one table. Searching the whole file would let a key of
+// the same name in another table be rewritten, and inserting at "the first table found" is exactly
+// how poetry's flat url keys ended up inside [project] and broke the build.
+function setTomlKey(toml, key, value, tableName) {
 	const lines = toml.split('\n');
+	const [start, end] = tableRange(lines, tableName);
 
-	const existing = lines.findIndex(line => isKeyLine(line, key));
-	if (existing !== -1) {
-		lines[existing] = `${key} = ${value}`;
-		return lines.join('\n');
+	for (let i = start; i < end; i++) {
+		if (isKeyLine(lines[i], key)) {
+			lines[i] = `${key} = ${value}`;
+			return lines.join('\n');
+		}
 	}
 
-	const table = lines.findIndex(line => line.trim() === '[project]' || line.trim() === '[tool.poetry]');
-	if (table === -1) fail('pyproject.toml has neither a [project] nor a [tool.poetry] table');
-
-	lines.splice(table + 1, 0, `${key} = ${value}`);
+	lines.splice(start, 0, `${key} = ${value}`);
 	return lines.join('\n');
 }
 
-// PEP 621 keeps URLs in their own table rather than as [project] keys.
+// Drops keys from [project] that do not belong there. PEP 621 defines a closed set, and setuptools
+// rejects the whole file rather than ignoring an unknown one.
+function removeProjectKeys(toml, keys) {
+	const lines = toml.split('\n');
+	const [start, end] = tableRange(lines, 'project');
+
+	const kept = lines
+		.slice(start, end)
+		.filter(line => !keys.some(key => isKeyLine(line, key)));
+
+	lines.splice(start, end - start, ...kept);
+	return lines.join('\n');
+}
+
+// PEP 621 keeps URLs in their own table rather than as [project] keys. The generator seeds it with a
+// GIT_USER_ID/GIT_REPO_ID placeholder, which would otherwise be published as the project's homepage.
 function setProjectUrls(toml) {
 	const lines = toml.split('\n');
 	const urls = lines.findIndex(line => line.trim() === '[project.urls]');
@@ -132,6 +164,27 @@ function setProjectUrls(toml) {
 	// A new table has to go at the end - opening one mid-file would swallow every key after it.
 	const trimmed = toml.replace(/\s+$/, '');
 	return `${trimmed}\n\n[project.urls]\nHomepage = "${REPO_URL}"\nRepository = "${REPO_URL}"\n`;
+}
+
+// The generator credits itself - "OpenAPI Generator Community" at openapitools.org - which would be
+// published as the package author on PyPI.
+function setProjectAuthors(toml) {
+	const lines = toml.split('\n');
+	const [start, end] = tableRange(lines, 'project');
+
+	const existing = lines.findIndex((line, i) => i >= start && i < end && isKeyLine(line, 'authors'));
+	if (existing === -1) {
+		lines.splice(start, 0, `authors = [{name = "${AUTHOR}"}]`);
+		return lines.join('\n');
+	}
+
+	// The value is an inline array the generator spreads over several lines, so the whole thing has to
+	// be replaced rather than just the line the key sits on.
+	let last = existing;
+	while (last < end - 1 && !lines[last].includes(']')) last++;
+
+	lines.splice(existing, last - existing + 1, `authors = [{name = "${AUTHOR}"}]`);
+	return lines.join('\n');
 }
 
 function setSetupKeyword(py, keyword, value) {
@@ -238,4 +291,4 @@ function main() {
 
 if (require.main === module) main();
 
-module.exports = { applyPhp, applyPython, applyCsharp, setTomlKey, setMsBuildProperty, setSetupKeyword };
+module.exports = { applyPhp, applyPython, applyCsharp, setTomlKey, setMsBuildProperty, setSetupKeyword, setProjectAuthors };
