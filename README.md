@@ -10,6 +10,15 @@ Client libraries for the OrderEazi Commerce API, plus an MCP toolkit for AI codi
 | C# | `dotnet add package OrderEazi.Commerce.Sdk` | [NuGet](https://www.nuget.org/packages/OrderEazi.Commerce.Sdk/) |
 | Agent toolkit | `npx @ordereazi/commerce-agent-toolkit` | [npm](https://www.npmjs.com/package/@ordereazi/commerce-agent-toolkit) |
 
+Admin clients, for server-side use only (see below):
+
+| Language | Install |
+|---|---|
+| TypeScript | `npm install @ordereazi/commerce-admin-sdk` |
+| Python | `pip install ordereazi-commerce-admin-sdk` |
+| PHP | `composer require ordereazi/commerce-admin-sdk` |
+| C# | `dotnet add package OrderEazi.Commerce.Admin.Sdk` |
+
 ## What these talk to
 
 The Commerce API has two surfaces, and they are not interchangeable:
@@ -19,7 +28,9 @@ The Commerce API has two surfaces, and they are not interchangeable:
 - **Admin** — back-office operations. Authenticated with an admin key (`sk_admin_`), which is
   server-to-server only and is refused outright if the request carries a browser `Origin` header.
 
-The four SDKs are generated against the **store** surface. The agent toolkit knows both.
+The four Store SDKs are generated against the **store** surface. The four Admin SDKs are separate
+packages generated against the **admin** surface: they use a different key, are server-side only, and
+are never bundled into a storefront. The agent toolkit knows both.
 
 ## Agent toolkit
 
@@ -38,6 +49,7 @@ tools. It is read-only: it tells an agent what the API looks like, it does not c
 
 ```
 typescript/      hand-written package, generated client underneath it
+typescript-admin/ the same for the Admin API; shares typescript/src/retry.ts at build time
 python/          generator config + retry middleware + tests
 php/             generator config + retry middleware + tests
 dotnet/          generator config + RetryHandler + tests
@@ -45,7 +57,8 @@ agent-toolkit/   MCP server + CLI
 scripts/         packaging helpers shared by the generated SDKs
 ```
 
-The four clients are generated from the API's live OpenAPI document at release time, so `generated/`
+The eight clients are generated from the API's live OpenAPI documents at release time (the generators
+take `SDK_SURFACE=store|admin`, and Admin output goes to `generated-admin/`), so `generated/`
 directories are build output and are not committed. The PHP client is additionally published to
 [commerce-sdk-php](https://github.com/OrderEazi/commerce-sdk-php), because Packagist can only publish
 a composer package from a repository root — that repo is generated, and issues belong here.
@@ -60,7 +73,8 @@ idempotency key, and `Retry-After` is honoured on 429. One policy covers all fou
 ## Releasing
 
 Tags drive releases. `v1.2.0` publishes all five packages - the four SDKs and the agent toolkit -
-on one version. Every registry authenticates by OIDC, so no publishing token is stored here.
+on one version. Every registry authenticates by OIDC, so no publishing token is stored here. The four
+Admin packages release in the same run once the repository variable `PUBLISH_ADMIN_SDK` is `true`.
 
 See [PUBLISHING.md](PUBLISHING.md) for the full picture: which API the SDKs are generated from, the
 trusted publishing policies, and what to check before a release.

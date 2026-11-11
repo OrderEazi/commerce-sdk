@@ -1,5 +1,7 @@
 generated/
+generated-admin/
 openapi-spec.json
+openapi-spec-admin.json
 bin/
 obj/
 *.nupkg

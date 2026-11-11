@@ -25,7 +25,8 @@ const REPO_URL = 'https://github.com/OrderEazi/commerce-sdk';
 // generator write that into [project] name as well - so the distribution would be published as
 // "ordereazi_commerce_api". PyPI then refuses with "Non-user identities cannot create new projects",
 // because a trusted publisher is registered against a specific project name and that is not it.
-const PYPI_PROJECT_NAME = 'ordereazi-commerce-sdk';
+// SDK_PYPI_NAME lets the admin client publish under its own project (ordereazi-commerce-admin-sdk).
+const PYPI_PROJECT_NAME = process.env.SDK_PYPI_NAME || 'ordereazi-commerce-sdk';
 
 function fail(message) {
 	console.error(`apply-package-metadata: ${message}`);
@@ -41,6 +42,12 @@ function applyPhp(dir) {
 	if (!fs.existsSync(manifest)) fail(`no composer.json in ${dir}`);
 
 	const json = readJson(manifest);
+
+	// Packagist takes the version from the git tag, and composer validate --strict (which the PHP repos'
+	// validation workflow runs) fails on a version field: "it is recommended to leave it out if the
+	// package is published on Packagist". The generator writes one from artifactVersion.
+	delete json.version;
+
 	json.license = LICENSE;
 	json.homepage = REPO_URL;
 	json.authors = [{ name: AUTHOR, homepage: REPO_URL }];

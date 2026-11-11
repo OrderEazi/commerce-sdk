@@ -33,6 +33,37 @@ Re-running a release is safe. npm refuses a duplicate version, PyPI skips existi
 | NuGet | `OrderEazi.Commerce.Sdk` | `dotnet/generated` |
 | Packagist | `ordereazi/commerce-sdk` | pushed to `OrderEazi/commerce-sdk-php`, which Packagist watches |
 
+## Admin SDKs
+
+Four more packages, one per language, generated from `/openapi/admin.json`. They are separate from the
+Store packages on purpose: the Admin API takes an admin key (`sk_admin_`) that must never reach a
+browser, and a merged package would ship every admin operation to every storefront.
+
+| Registry | Package | Source |
+|---|---|---|
+| npm | `@ordereazi/commerce-admin-sdk` | `typescript-admin/` |
+| PyPI | `ordereazi-commerce-admin-sdk` | `python/generated-admin` |
+| NuGet | `OrderEazi.Commerce.Admin.Sdk` | `dotnet/generated-admin` |
+| Packagist | `ordereazi/commerce-admin-sdk` | pushed to `OrderEazi/commerce-admin-sdk-php` |
+
+The release workflow always **generates** the Admin clients, so a spec change that breaks one fails the
+run. It only **publishes** them when the repository variable `PUBLISH_ADMIN_SDK` is `true`, because
+none of the registry side exists until someone creates it. Before setting that variable:
+
+1. **npm** - the first release of a new package cannot be keyless: add `NPM_TOKEN` for it, publish
+   once, then attach a trusted publisher (`OrderEazi` / `commerce-sdk` / `release.yml`) to
+   `@ordereazi/commerce-admin-sdk` and remove the token.
+2. **PyPI** - add a pending publisher for the project `ordereazi-commerce-admin-sdk`
+   (`OrderEazi` / `commerce-sdk` / `release.yml` / environment `pypi`).
+3. **NuGet** - add a trusted publishing policy for `OrderEazi.Commerce.Admin.Sdk` against the same
+   repository and `release.yml`.
+4. **Packagist** - create the repository `OrderEazi/commerce-admin-sdk-php`, extend
+   `SDK_PHP_PUSH_TOKEN` to cover it (Contents: read/write), and submit it to Packagist. Without the
+   token the PHP push skips cleanly.
+
+Generate one locally with `SDK_SURFACE=admin bash generate.sh` inside `python/`, `php/` or `dotnet/`, or
+`bash scripts/generate-client.sh` inside `typescript-admin/`.
+
 ## Which API the SDKs describe
 
 `OPENAPI_BASE_URL` decides, and it is the real input to a release - more than the version is. Unset,

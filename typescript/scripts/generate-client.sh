@@ -14,7 +14,15 @@ set -e
 # The other three languages never probed; they just call the generator, and that is what this does now.
 
 API_URL=${API_URL:-"http://localhost:5135"}
-OPENAPI_DOC=${OPENAPI_DOC:-"store"}
+# SDK_SURFACE picks the API the client is generated for: store (this package) or admin (../typescript-admin,
+# which runs this script from its own folder). They are separate packages with separate credentials.
+SDK_SURFACE=${SDK_SURFACE:-"store"}
+OPENAPI_DOC=${OPENAPI_DOC:-"${SDK_SURFACE}"}
+case "${SDK_SURFACE}" in
+    store) NPM_NAME="@ordereazi/commerce-sdk" ;;
+    admin) NPM_NAME="@ordereazi/commerce-admin-sdk" ;;
+    *) echo "Unknown SDK_SURFACE '${SDK_SURFACE}' - expected store or admin"; exit 1 ;;
+esac
 OPENAPI_SPEC_URL="${API_URL}/openapi/${OPENAPI_DOC}.json"
 OUTPUT_DIR="./src/generated"
 
@@ -45,7 +53,7 @@ npx --yes @openapitools/openapi-generator-cli generate \
     -i "${OUTPUT_DIR}/openapi-spec.json" \
     -g typescript-axios \
     -o "${OUTPUT_DIR}/client" \
-    --additional-properties=supportsES6=true,withInterfaces=true,typescriptThreePlus=true,npmName=@ordereazi/commerce-sdk
+    --additional-properties=supportsES6=true,withInterfaces=true,typescriptThreePlus=true,npmName=${NPM_NAME}
 
 # src/index.ts re-exports ./generated/client, so tsc fails with TS2307 if generation quietly produced
 # nothing. Better to say so here than to have the build fail one step later with a confusing error.

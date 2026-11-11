@@ -1,0 +1,51 @@
+{
+  "name": "@ordereazi/commerce-admin-sdk",
+  "version": "1.0.0",
+  "description": "TypeScript SDK for the OrderEazi Commerce Admin API (server-side only)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepack": "node ../scripts/copy-license.js",
+    "generate": "bash scripts/generate-client.sh",
+    "sync:retry": "node -e \"require('fs').copyFileSync('../typescript/src/retry.ts','src/retry.ts')\"",
+    "prebuild": "npm run sync:retry",
+    "build": "tsc",
+    "test": "ts-node tests/smoke.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "ordereazi-commerce",
+    "commerce",
+    "admin",
+    "api",
+    "sdk",
+    "typescript"
+  ],
+  "author": "OrderEazi",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.4.5"
+  },
+  "dependencies": {
+    "axios": "1.7.9"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/OrderEazi/commerce-sdk/tree/main/typescript-admin#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OrderEazi/commerce-sdk.git",
+    "directory": "typescript-admin"
+  },
+  "bugs": {
+    "url": "https://github.com/OrderEazi/commerce-sdk/issues"
+  }
+}
