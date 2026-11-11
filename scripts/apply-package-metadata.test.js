@@ -62,6 +62,16 @@ test('php: sets licence, author and support links', dir => {
 	assert.strictEqual(json.name, 'ordereazi/commerce-sdk', 'the package name must survive untouched');
 });
 
+test('php: drops the version field, which composer validate --strict rejects for a Packagist package', dir => {
+	write(dir, 'composer.json', '{\n  "name": "ordereazi/commerce-admin-sdk",\n  "version": "1.0.0",\n  "type": "library"\n}\n');
+
+	applyPhp(dir);
+
+	const json = JSON.parse(read(dir, 'composer.json'));
+	assert.ok(!('version' in json), 'the version comes from the git tag, so the field must not be written');
+	assert.strictEqual(json.name, 'ordereazi/commerce-admin-sdk');
+});
+
 test('python pyproject (PEP 621): licence set and urls go in [project.urls]', dir => {
 	write(dir, 'pyproject.toml', '[project]\nname = "ordereazi-commerce-sdk"\nversion = "1.0.0"\n\n[build-system]\nrequires = ["setuptools"]\n');
 

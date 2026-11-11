@@ -7,21 +7,31 @@ set -e
 # and a JRE on PATH for that jar to execute.
 
 API_URL="${API_URL:-http://localhost:5135}"
-OPENAPI_DOC="${OPENAPI_DOC:-store}"
+# SDK_SURFACE picks which API the client is generated for: store (the default) or admin. They are
+# separate packages with separate credentials, so nothing about one leaks into the other's names.
+SDK_SURFACE="${SDK_SURFACE:-store}"
+OPENAPI_DOC="${OPENAPI_DOC:-${SDK_SURFACE}}"
+case "${SDK_SURFACE}" in
+    store) OUTPUT_NAME="generated"; SPEC_NAME="openapi-spec.json"
+           PHP_NAMESPACE='OrderEazi\Commerce\Api'; PHP_PACKAGE="ordereazi-commerce-sdk"; COMPOSER_NAME="ordereazi/commerce-sdk"; SDK_LABEL="Commerce API" ;;
+    admin) OUTPUT_NAME="generated-admin"; SPEC_NAME="openapi-spec-admin.json"
+           PHP_NAMESPACE='OrderEazi\Commerce\Admin\Api'; PHP_PACKAGE="ordereazi-commerce-admin-sdk"; COMPOSER_NAME="ordereazi/commerce-admin-sdk"; SDK_LABEL="Commerce Admin API" ;;
+    *) echo "Unknown SDK_SURFACE '${SDK_SURFACE}' - expected store or admin"; exit 1 ;;
+esac
 OPENAPI_SPEC_URL="${API_URL}/openapi/${OPENAPI_DOC}.json"
 SDK_DIR="$(cd "$(dirname "$0")" && pwd)"
-OUTPUT_DIR="${SDK_DIR}/generated"
+OUTPUT_DIR="${SDK_DIR}/${OUTPUT_NAME}"
 PACKAGE_VERSION="${SDK_VERSION:-1.0.0}"
 
 echo "=========================================="
-echo "Generating OrderEazi Commerce API PHP SDK"
+echo "Generating OrderEazi ${SDK_LABEL} PHP SDK"
 echo "=========================================="
 echo "Spec URL: ${OPENAPI_SPEC_URL}"
 echo "Output: ${OUTPUT_DIR}"
 echo "=========================================="
 
 mkdir -p "${OUTPUT_DIR}"
-SPEC_FILE="${SDK_DIR}/openapi-spec.json"
+SPEC_FILE="${SDK_DIR}/${SPEC_NAME}"
 
 curl -sf -o "${SPEC_FILE}" "${OPENAPI_SPEC_URL}" || {
     echo "Error: could not fetch OpenAPI spec from ${OPENAPI_SPEC_URL}"
@@ -33,7 +43,7 @@ npx --yes @openapitools/openapi-generator-cli generate \
     -i "${SPEC_FILE}" \
     -g php \
     -o "${OUTPUT_DIR}" \
-    --additional-properties=invokerPackage=OrderEazi\\Commerce\\Api,packageName=ordereazi-commerce-sdk,composerPackageName=ordereazi/commerce-sdk,artifactVersion="${PACKAGE_VERSION}"
+    --additional-properties=invokerPackage="${PHP_NAMESPACE}",packageName="${PHP_PACKAGE}",composerPackageName="${COMPOSER_NAME}",artifactVersion="${PACKAGE_VERSION}"
 
 echo ""
 # Licence, author and repository metadata. openapi-generator does not expose the same set of these

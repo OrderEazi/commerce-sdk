@@ -1,6 +1,6 @@
 {
   "generatedFrom": "store.json",
-  "operationCount": 103,
+  "operationCount": 107,
   "operations": [
     {
       "operationId": "AccountAddressesCreateAddressApi",
@@ -123,6 +123,68 @@
           "methodName": "AccountAddressesUpdateAddressApiAsync",
           "responseType": "IAccountAddressesUpdateAddressApiApiResponse",
           "usage": "var response = await api.AccountAddressesUpdateAddressApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "AccountListCouponsApi",
+      "method": "GET",
+      "path": "/api/v1/store/account/coupons",
+      "tag": "Account - Coupons",
+      "summary": "Lists the customer's coupons.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountCouponsApi",
+          "methodName": "accountListCouponsApi",
+          "usage": "const api = new AccountCouponsApi(config); const result = await api.accountListCouponsApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountCouponsApi",
+          "methodName": "account_list_coupons_api",
+          "usage": "api = AccountCouponsApi(api_client); result = api.account_list_coupons_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountCouponsApi",
+          "methodName": "accountListCouponsApi",
+          "usage": "$api = new AccountCouponsApi(null, $config); $result = $api->accountListCouponsApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountCouponsApi",
+          "interfaceName": "IAccountCouponsApi",
+          "methodName": "AccountListCouponsApiAsync",
+          "responseType": "IAccountListCouponsApiApiResponse",
+          "usage": "var response = await api.AccountListCouponsApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "AccountListGiftVouchersApi",
+      "method": "GET",
+      "path": "/api/v1/store/account/gift-vouchers",
+      "tag": "Account - Gift Vouchers",
+      "summary": "Lists the customer's gift vouchers.",
+      "sdk": {
+        "typescript": {
+          "className": "AccountGiftVouchersApi",
+          "methodName": "accountListGiftVouchersApi",
+          "usage": "const api = new AccountGiftVouchersApi(config); const result = await api.accountListGiftVouchersApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "AccountGiftVouchersApi",
+          "methodName": "account_list_gift_vouchers_api",
+          "usage": "api = AccountGiftVouchersApi(api_client); result = api.account_list_gift_vouchers_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "AccountGiftVouchersApi",
+          "methodName": "accountListGiftVouchersApi",
+          "usage": "$api = new AccountGiftVouchersApi(null, $config); $result = $api->accountListGiftVouchersApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "AccountGiftVouchersApi",
+          "interfaceName": "IAccountGiftVouchersApi",
+          "methodName": "AccountListGiftVouchersApiAsync",
+          "responseType": "IAccountListGiftVouchersApiApiResponse",
+          "usage": "var response = await api.AccountListGiftVouchersApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
         }
       }
     },
@@ -255,7 +317,7 @@
       "method": "POST",
       "path": "/api/v1/store/auth/register",
       "tag": "Auth",
-      "summary": "Registers a new customer account and, unless merchant approval is required, logs them in.",
+      "summary": "Registers a new customer account in two calls. The first (no `otp`/`hash`) emails a verification\ncode and returns 202 with a `hash`; no account exists yet. The second, with the same details plus the\n`hash` and the `otp`, creates the account and, unless merchant approval is required, logs them in.",
       "sdk": {
         "typescript": {
           "className": "AuthApi",
@@ -1371,7 +1433,7 @@
       "method": "POST",
       "path": "/api/v1/store/checkout/contact-details",
       "tag": "Checkout",
-      "summary": "Sets contact details on the cart (Email required; Name/Phone/Instructions/CustomerTax/\nPurchaseOrderNumber/NewsletterSubscribe recognised, anything else stored as a custom key-value).",
+      "summary": "Sets contact details on the cart (Email required; Name/Phone/Instructions/CustomerTax/\nPurchaseOrderNumber/RequestedDeliveryDate (yyyy-MM-dd)/NewsletterSubscribe recognised, anything else stored as a custom key-value).",
       "sdk": {
         "typescript": {
           "className": "CheckoutApi",
@@ -2359,6 +2421,37 @@
       }
     },
     {
+      "operationId": "OrdersGetOrderTrackingApi",
+      "method": "GET",
+      "path": "/api/v1/store/orders/{orderId}/tracking",
+      "tag": "Orders",
+      "summary": "Tracking for every shipment on the order: status, progress steps, carrier link and timeline.\nShipments sent through a shipping app are refreshed from the app when their last check is stale.",
+      "sdk": {
+        "typescript": {
+          "className": "OrdersApi",
+          "methodName": "ordersGetOrderTrackingApi",
+          "usage": "const api = new OrdersApi(config); const result = await api.ordersGetOrderTrackingApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "OrdersApi",
+          "methodName": "orders_get_order_tracking_api",
+          "usage": "api = OrdersApi(api_client); result = api.orders_get_order_tracking_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "OrdersApi",
+          "methodName": "ordersGetOrderTrackingApi",
+          "usage": "$api = new OrdersApi(null, $config); $result = $api->ordersGetOrderTrackingApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "OrdersApi",
+          "interfaceName": "IOrdersApi",
+          "methodName": "OrdersGetOrderTrackingApiAsync",
+          "responseType": "IOrdersGetOrderTrackingApiApiResponse",
+          "usage": "var response = await api.OrdersGetOrderTrackingApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
       "operationId": "OrdersReorderApi",
       "method": "POST",
       "path": "/api/v1/store/orders/{orderId}/reorder",
@@ -2797,7 +2890,7 @@
       "method": "GET",
       "path": "/api/v1/store/search/products",
       "tag": "Search",
-      "summary": "Faceted/filtered product listing - the category/search results page. Falls back to a plain database\nkeyword query (no facets - those need Solr's index) when the store has no Solr instance configured,\nor the configured one is unreachable, instead of surfacing an opaque 500. Callers can detect this via\nthe SearchDegraded flag on the response.",
+      "summary": "Faceted/filtered product listing - the category/search results page, served from Solr. There is no\ndatabase fallback: when Solr is unreachable this returns 503 search_unavailable.",
       "sdk": {
         "typescript": {
           "className": "SearchApi",
@@ -2913,6 +3006,37 @@
           "methodName": "SearchPredictiveSearchApiAsync",
           "responseType": "ISearchPredictiveSearchApiApiResponse",
           "usage": "var response = await api.SearchPredictiveSearchApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
+        }
+      }
+    },
+    {
+      "operationId": "StoreGetConfigurationApi",
+      "method": "GET",
+      "path": "/api/v1/store/configuration",
+      "tag": "Configuration",
+      "summary": "Gets the store's public configuration.",
+      "sdk": {
+        "typescript": {
+          "className": "ConfigurationApi",
+          "methodName": "storeGetConfigurationApi",
+          "usage": "const api = new ConfigurationApi(config); const result = await api.storeGetConfigurationApi(/* see get_endpoint_details for params */); // result.data"
+        },
+        "python": {
+          "className": "ConfigurationApi",
+          "methodName": "store_get_configuration_api",
+          "usage": "api = ConfigurationApi(api_client); result = api.store_get_configuration_api(...)  # see get_endpoint_details for params"
+        },
+        "php": {
+          "className": "ConfigurationApi",
+          "methodName": "storeGetConfigurationApi",
+          "usage": "$api = new ConfigurationApi(null, $config); $result = $api->storeGetConfigurationApi(...); // see get_endpoint_details for params"
+        },
+        "csharp": {
+          "className": "ConfigurationApi",
+          "interfaceName": "IConfigurationApi",
+          "methodName": "StoreGetConfigurationApiAsync",
+          "responseType": "IStoreGetConfigurationApiApiResponse",
+          "usage": "var response = await api.StoreGetConfigurationApiAsync(/* see get_endpoint_details for params */); var result = response.Ok(); // or .Unauthorized(), .NotFound(), etc. per status"
         }
       }
     },
